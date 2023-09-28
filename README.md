@@ -16,6 +16,10 @@ Repositorio de github para el proyecto de reservas de laboratorios de la Escuela
 
 ## Guía de estilos
 
+### Figma: 
+
+https://www.figma.com/files/project/109507447/LabFlow?fuid=1289303348269625699 
+
 #### Fuentes:
 
 ---
