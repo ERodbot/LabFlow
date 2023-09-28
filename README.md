@@ -24,9 +24,13 @@ Repositorio de github para el proyecto de reservas de laboratorios de la Escuela
 
 ---
 –celestial-blue:  ![#3b9dd2](https://placehold.co/15x15/3b9dd2/3b9dd2.png) `#3b9dd2ff`;
+
 –picton-blue: ![#41ade7](https://placehold.co/15x15/41ade7/41ade7.png) `#41ade7`;
+
 –mantis:  ![#7cb755](https://placehold.co/15x15/7cb755/7cb755.png) `#7cb755`;
+
 –olivine: ![#adc05c](https://placehold.co/15x15/adc05c/adc05c.png) `#adc05c`;
+
 –citron: ; ![#ddc862](https://placehold.co/15x15/ddc862/ddc862.png) `#ddc862`;
 
 ---
@@ -73,3 +77,6 @@ $citron: rgba(221, 200, 98, 1);
 <u>Bootstrap</u>:  [Bootstrap 5 CheatSheet By ThemeSelection | Classes](https://bootstrap-cheatsheet.themeselection.com/)
 
 <u>Tailwind</u>:  [Tailwind CSS Cheat Sheet (tailwindcomponents.com)](https://tailwindcomponents.com/cheatsheet/)
+
+
+
