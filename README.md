@@ -13,18 +13,27 @@ Repositorio de github para el proyecto de reservas de laboratorios de la Escuela
 * Mauricio Fernandez 
 * Daniel Garbanzo
 
-
+---
 ## Guía de estilos
+---
 
+
+---
 ### Figma: 
 
 https://www.figma.com/files/project/109507447/LabFlow?fuid=1289303348269625699 
-
-#### Fuentes:
-
 ---
 
+
+---
+#### Fuentes:
+---
+
+
+---
 #### Paleta de colores:
+---
+
 
 ---
 –celestial-blue:  ![#3b9dd2](https://placehold.co/15x15/3b9dd2/3b9dd2.png) `#3b9dd2ff`;
@@ -37,74 +46,13 @@ https://www.figma.com/files/project/109507447/LabFlow?fuid=1289303348269625699
 
 –citron: ; ![#ddc862](https://placehold.co/15x15/ddc862/ddc862.png) `#ddc862`;
 
+Link en Coolors: https://coolors.co/p/ac6MnuqFiRq09seuiNqb
 ---
 
-<b> CSS HEX </b>
-
---celestial-blue: #3b9dd2ff;
-
---picton-blue: #41ade7ff;
-
---mantis: #7cb755ff;
-
---olivine: #adc05cff;
-
---citron: #ddc862ff;
-
-
-<b> CSS HSL </b> 
-
---celestial-blue: hsla(201, 63%, 53%, 1);
-
---picton-blue: hsla(201, 78%, 58%, 1);
-
---mantis: hsla(96, 40%, 53%, 1);
-
---olivine: hsla(71, 44%, 56%, 1);
-
---citron: hsla(50, 64%, 63%, 1);
-
-
-<b>  SCSS HEX </b> 
-$celestial-blue: #3b9dd2ff;
-
-$picton-blue: #41ade7ff;
-
-$mantis: #7cb755ff;
-
-$olivine: #adc05cff;
-
-$citron: #ddc862ff;
-
-
-<b>  SCSS HSL </b> 
-
-$celestial-blue: hsla(201, 63%, 53%, 1);
-
-$picton-blue: hsla(201, 78%, 58%, 1);
-
-$mantis: hsla(96, 40%, 53%, 1);
-
-$olivine: hsla(71, 44%, 56%, 1);
-
-$citron: hsla(50, 64%, 63%, 1);
-
-
-<b>  SCSS RGB </b> 
-
-$celestial-blue: rgba(59, 157, 210, 1);
-
-$picton-blue: rgba(65, 173, 231, 1);
-
-$mantis: rgba(124, 183, 85, 1);
-
-$olivine: rgba(173, 192, 92, 1);
-
-$citron: rgba(221, 200, 98, 1);
 
 ---
-
 #### Bootstrap/Tailwind cheatsheet 
+---
 
 <u>Bootstrap</u>:  [Bootstrap 5 CheatSheet By ThemeSelection | Classes](https://bootstrap-cheatsheet.themeselection.com/)
 
