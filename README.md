@@ -35,7 +35,7 @@ Repositorio de github para el proyecto de reservas de laboratorios de la Escuela
 
 ---
 
-** CSS HEX **
+<b> CSS HEX </b>
 
 --celestial-blue: #3b9dd2ff;
 
@@ -47,7 +47,7 @@ Repositorio de github para el proyecto de reservas de laboratorios de la Escuela
 
 --citron: #ddc862ff;
 
-** CSS HSL **
+<b> CSS HSL </b> 
 
 --celestial-blue: hsla(201, 63%, 53%, 1);
 
@@ -59,7 +59,7 @@ Repositorio de github para el proyecto de reservas de laboratorios de la Escuela
 
 --citron: hsla(50, 64%, 63%, 1);
 
-** SCSS HEX **
+<b>  SCSS HEX </b> 
 $celestial-blue: #3b9dd2ff;
 
 $picton-blue: #41ade7ff;
@@ -70,7 +70,7 @@ $olivine: #adc05cff;
 
 $citron: #ddc862ff;
 
-** SCSS HSL **
+<b>  SCSS HSL </b> 
 
 $celestial-blue: hsla(201, 63%, 53%, 1);
 
@@ -82,7 +82,7 @@ $olivine: hsla(71, 44%, 56%, 1);
 
 $citron: hsla(50, 64%, 63%, 1);
 
-** SCSS RGB **
+<b>  SCSS RGB </b> 
 
 $celestial-blue: rgba(59, 157, 210, 1);
 
