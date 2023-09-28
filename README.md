@@ -18,22 +18,21 @@ Repositorio de github para el proyecto de reservas de laboratorios de la Escuela
 ## Guía de estilos
 
 
+</br>
 
 #### Figma: 
 
 https://www.figma.com/files/project/109507447/LabFlow?fuid=1289303348269625699 
 
-
+</br>
 
 #### Fuentes:
 
-
-
+</br>
 
 #### Paleta de colores:
 
-
-
+</br>
 
 –celestial-blue:  ![#3b9dd2](https://placehold.co/15x15/3b9dd2/3b9dd2.png) `#3b9dd2ff`;
 
@@ -47,10 +46,11 @@ https://www.figma.com/files/project/109507447/LabFlow?fuid=1289303348269625699
 
 Link en Coolors: https://coolors.co/p/ac6MnuqFiRq09seuiNqb
 
-
-
+</br>
 
 #### Bootstrap/Tailwind cheatsheet 
+
+</br>
 
 
 <u>Bootstrap</u>:  [Bootstrap 5 CheatSheet By ThemeSelection | Classes](https://bootstrap-cheatsheet.themeselection.com/)
