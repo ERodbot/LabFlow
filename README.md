@@ -10,8 +10,8 @@ Repositorio de github para el proyecto de reservas de laboratorios de la Escuela
 ### Colaboradores: 
 
 * Emanuel Rodríguez Oviedo
-* Mauricio Fernandez 
-* Daniel Garbanzo
+* Mauricio Fernandez Brizuela
+* Daniel Garbanzo Carvajal
 
 ---
 
