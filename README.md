@@ -11,7 +11,7 @@ Repositorio de github para el proyecto de reservas de laboratorios de la Escuela
 
 * Emanuel Rodríguez Oviedo
 * Mauricio Fernandez Brizuela
-* Daniel Garbanzo Carvajal
+* Daniel Alonso Garbanzo Carvajal
 
 ---
 
