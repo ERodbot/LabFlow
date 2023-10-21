@@ -57,5 +57,10 @@ Link en Coolors: https://coolors.co/p/ac6MnuqFiRq09seuiNqb
 
 <u>Tailwind</u>:  [Tailwind CSS Cheat Sheet (tailwindcomponents.com)](https://tailwindcomponents.com/cheatsheet/)
 
+####Manual de usuario
+La api se inicializa con: yarn start
 
-
+Instalación de yarn: se ejecuta el comando npm install --global yarn // es como npm
+Instalación de moongose: yarn add mongoose
+Instalación de express: yarn add express
+Instalación de nodemon: yarn add nodemon -D //esto es para que se actualice la api sin necesidad de tener que reiniciar, el -D es para que solo este presente en el entorno de desarrollo
