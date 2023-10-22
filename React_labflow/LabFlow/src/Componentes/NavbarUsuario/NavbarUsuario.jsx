@@ -1,21 +1,48 @@
+/*React*/
 import { useState, useEffect, useReducer } from "react";
+/*Reac-Bootstrap*/
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
+
+/*Custom css*/
+import "./NavbarUsuario.css";
+
+/*Imagenes*/
+import ucrlogo from "../../images/logotipoucr.png";
 
 const NavbarUsuario = () => {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary" fixed="top">
+    <Navbar className="navbar navbar-expand-sm custom-navbar " fixed="top">
       <Container>
-        <Navbar.Brand href="#home">UCR</Navbar.Brand>
+        <Navbar.Brand href="/PrincipalUsuario" className="mr-4">
+          <img
+            src={ucrlogo}
+            alt="ucr logo"
+            style={{ width: "10rem", height: "5rem" }}
+          />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/laboratorios">Laboratorios</Nav.Link>
-            <Nav.Link href="/laboratorios">Laboratorios</Nav.Link>
-            <Nav.Link href="/laboratorios">Laboratorios</Nav.Link>
-            <Nav.Link href="/laboratorios">Laboratorios</Nav.Link>
+            <Nav.Link href="/Reservar" className="mx-4 custom-navbar-font">
+              Reservar
+            </Nav.Link>
+            <Nav.Link href="/Laboratorios" className="mx-4 custom-navbar-font">
+              Laboratorios
+            </Nav.Link>
+            <Nav.Link
+              href="/Mis reservaciones"
+              className="mx-4 custom-navbar-font"
+            >
+              Mis reservaciones
+            </Nav.Link>
+            <Nav.Link
+              href="/Disponibilidad"
+              className="mx-4 custom-navbar-font"
+            >
+              Disponibilidad
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

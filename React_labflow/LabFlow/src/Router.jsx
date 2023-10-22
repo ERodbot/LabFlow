@@ -3,6 +3,7 @@ import App from "./App.jsx";
 import Init from "./Pages/IniciarSesion/Init.jsx";
 import PrincipalUsuario from "./Pages/PrincipalUsuario/PrincipalUsuario.jsx";
 import Laboratorios from "./Pages/Laboratorios/Laboratorios.jsx";
+import Reportes from "./Pages/Reportes/Reportes.jsx";
 
 const Router = createBrowserRouter([
   {
@@ -18,7 +19,23 @@ const Router = createBrowserRouter([
     element: <PrincipalUsuario />,
   },
   {
+    path: "/Reservar",
+    element: <Laboratorios />,
+  },
+  {
     path: "/Laboratorios",
+    element: <Laboratorios />,
+  },
+  {
+    path: "/Reportes",
+    element: <Reportes />,
+  },
+  {
+    path: "/Mis reservaciones",
+    element: <Laboratorios />,
+  },
+  {
+    path: "/Disponibilidad",
     element: <Laboratorios />,
   },
 ]);
