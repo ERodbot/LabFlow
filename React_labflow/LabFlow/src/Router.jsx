@@ -4,6 +4,8 @@ import Init from "./Pages/IniciarSesion/Init.jsx";
 import PrincipalUsuario from "./Pages/PrincipalUsuario/PrincipalUsuario.jsx";
 import Laboratorios from "./Pages/Laboratorios/Laboratorios.jsx";
 import Reportes from "./Pages/Reportes/Reportes.jsx";
+import ReservacionesInfo from "./Pages/Mis reservaciones info/ReservacionesInfo.jsx";
+import MisReservaciones from "./Pages/Mis reservaciones/MisReservaciones.jsx";
 
 const Router = createBrowserRouter([
   {
@@ -31,8 +33,12 @@ const Router = createBrowserRouter([
     element: <Reportes />,
   },
   {
-    path: "/Mis reservaciones",
-    element: <Laboratorios />,
+    path: "/Mis_reservaciones",
+    element: <MisReservaciones />,
+  },
+  {
+    path: "/Mis_reservaciones_info",
+    element: <ReservacionesInfo />,
   },
   {
     path: "/Disponibilidad",

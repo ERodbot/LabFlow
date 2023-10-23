@@ -1,0 +1,10 @@
+{
+    "nombre": "lab1",
+    "fecha": "01-07-2023", 
+    "espacio":{"inicio": "07:30:00", "final": "09:30:00"},
+    "usuario":"user1", 
+    "sigle-del-curso":"IO-5309", 
+    "nombre-del-curso":"Fonología idioma inglés",
+    "grupo": "1",
+    "observaciones":"grupo calmado"
+}

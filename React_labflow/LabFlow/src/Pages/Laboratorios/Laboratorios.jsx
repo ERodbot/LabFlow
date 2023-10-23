@@ -43,14 +43,13 @@ const Laboratorios = () => {
                       backgroundColor: "#41ADE7",
                       padding: "0rem",
                     }}
-                    className="custom-card"
                   >
                     {isHovered ? (
                       <Card.Body className="d-flex flex-column align-items-center">
-                        <Card.Text className="mx-auto my-auto mb-3">
+                        <Card.Text className="mx-5 my-auto">
                           Ubicación: {laboratorio.ubicacion}
                         </Card.Text>
-                        <Card.Text className="mx-auto my-auto">
+                        <Card.Text className="mx-5 my-auto ">
                           Mantenimiento: Cada {laboratorio.mantenimiento.cada}{" "}
                           veces {laboratorio.mantenimiento.veces}
                         </Card.Text>
