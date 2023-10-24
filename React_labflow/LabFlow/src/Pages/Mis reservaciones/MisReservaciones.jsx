@@ -10,18 +10,28 @@ import {
 } from "react-bootstrap";
 import "./MisReservaciones.css";
 import reservacionesData from "./misreservaciones.json";
+import { Link } from "react-router-dom";
 
 const MisReservaciones = () => {
   const [reservaciones, setReservaciones] = React.useState(
     reservacionesData.reservas
   );
+
   const [filteredReservaciones, setFilteredReservaciones] =
     React.useState(reservaciones);
+
   const [searchTerm, setSearchTerm] = React.useState("");
+
+  const [individualReservation, setIndividualReservation] =
+    React.useState(null);
 
   const handleSearch = (event) => {
     const term = event.target.value;
     setSearchTerm(term);
+  };
+
+  const handleTableRowClick = (rutaNueva) => {
+    // Manejar la navegación al hacer clic en una fila
   };
 
   React.useEffect(() => {
@@ -36,6 +46,11 @@ const MisReservaciones = () => {
 
     setFilteredReservaciones(filtered);
   }, [searchTerm, reservaciones]);
+
+  const handleReservationSelection = (index) => {
+    console.log(index + 1);
+    window.location.href = "Mis_reservaciones_info";
+  };
 
   return (
     <PaginaBase>
@@ -61,7 +76,7 @@ const MisReservaciones = () => {
           </thead>
           <tbody>
             {filteredReservaciones.map((reservacion, index) => (
-              <tr key={index}>
+              <tr key={index} onClick={() => handleReservationSelection(index)}>
                 <td
                   style={{
                     backgroundColor: "#F0E7BA",

@@ -6,6 +6,8 @@ import Laboratorios from "./Pages/Laboratorios/Laboratorios.jsx";
 import Reportes from "./Pages/Reportes/Reportes.jsx";
 import ReservacionesInfo from "./Pages/Mis reservaciones info/ReservacionesInfo.jsx";
 import MisReservaciones from "./Pages/Mis reservaciones/MisReservaciones.jsx";
+import Reservar from "./Pages/Reservar/Reservar.jsx";
+import Disponibilidad from "./Pages/Disponibilidad/Disponibilidad.jsx";
 
 const Router = createBrowserRouter([
   {
@@ -22,7 +24,7 @@ const Router = createBrowserRouter([
   },
   {
     path: "/Reservar",
-    element: <Laboratorios />,
+    element: <Reservar />,
   },
   {
     path: "/Laboratorios",
@@ -42,7 +44,7 @@ const Router = createBrowserRouter([
   },
   {
     path: "/Disponibilidad",
-    element: <Laboratorios />,
+    element: <Disponibilidad />,
   },
 ]);
 

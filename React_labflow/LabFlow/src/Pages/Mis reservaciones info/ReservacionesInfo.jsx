@@ -14,6 +14,9 @@ import "./ReservacionesInfo.css";
 const ReservacionesInfo = () => {
   const [labinfo, setLabfinfo] = useState(reservacioninfo);
   console.log(labinfo);
+  const eliminateReservation = (id) => {
+    console.log(id);
+  };
   return (
     <PaginaBase>
       <Card className="p-2 w-75 mx-auto mt-5">
@@ -78,6 +81,16 @@ const ReservacionesInfo = () => {
           </Col>
         </Row>
       </Card>
+      <Container className="d-flex justify-content-center my-5">
+        <Link to="http://localhost:5173/Mis_reservaciones">
+          <Button
+            style={{ backgroundColor: "#41ADE7", border: "none" }}
+            onClick={() => eliminateReservation(labinfo.id)}
+          >
+            Cancelar reservación.
+          </Button>
+        </Link>
+      </Container>
     </PaginaBase>
   );
 };

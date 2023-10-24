@@ -89,3 +89,11 @@ yarn add nodemon -D
 ```
 
 esto es para que se actualice la api sin necesidad de tener que reiniciar, el -D es para que solo este presente en el entorno de desarrollo
+
+#### Calendario
+
+Instalar calendario:
+
+```
+npm install react-big-calendar moment
+```

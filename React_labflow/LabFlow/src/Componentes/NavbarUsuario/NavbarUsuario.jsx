@@ -32,7 +32,7 @@ const NavbarUsuario = () => {
               Laboratorios
             </Nav.Link>
             <Nav.Link
-              href="/Mis reservaciones"
+              href="/Mis_reservaciones"
               className="mx-4 custom-navbar-font"
             >
               Mis reservaciones
