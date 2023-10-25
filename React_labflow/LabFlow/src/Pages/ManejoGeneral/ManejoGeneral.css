@@ -1,0 +1,40 @@
+.tableTitle{
+    margin: auto;
+    padding: 1rem;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ADC05C; 
+  padding: 10px; 
+  border: 2px solid #000; 
+  border-top-left-radius: 1rem; 
+  border-top-right-radius: 1rem;
+}
+
+/* Clase para la tabla personalizada */
+.custom-table th{
+  background-color: #ADC05C;
+  border: 2px solid #000; 
+  border-radius: 5px; 
+}
+
+/* Clase para el cuadro de búsqueda */
+.search-input {
+  width: 50%; 
+}
+
+.table-entry {
+    background-color: #D6E49B; 
+    font-weight: 700;
+}
+
+.selected .not-selected {
+    background-color: #F0F3F8;  
+    border-radius: 2rem;
+}
+
+.selected {
+    border: 3px solid black;
+}

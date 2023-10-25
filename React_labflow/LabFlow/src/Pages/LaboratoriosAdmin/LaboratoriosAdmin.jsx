@@ -11,11 +11,11 @@ import { Link } from "react-router-dom";
 import labtest from "./labtest.json";
 
 /*Custom css*/
-import "./Laboratorios.css";
+import "./LaboratoriosAdmin.css";
 
 // ...
 
-const Laboratorios = () => {
+const LaboratoriosAdmin = () => {
   const [laboratorios, setLaboratorios] = React.useState(labtest.laboratorios);
 
   return (
@@ -24,20 +24,29 @@ const Laboratorios = () => {
         <Row className="g-5">
           {laboratorios.map((laboratorio, indice) => (
             <Col key={indice}>
-              <LaboratorioCard laboratorio={laboratorio} />
+              <LaboratorioCard laboratorio={laboratorio} showIcon={true} />
             </Col>
           ))}
         </Row>
       </Container>
       <Container className="d-flex justify-content-center my-5">
-        <Link to="http://localhost:5173/Reportes">
-          <Button style={{ backgroundColor: "#41ADE7", border: "none" }}>
-            Reportar problema
-          </Button>
-        </Link>
+        <Row>
+          <Col>
+            <Link to="http://localhost:5173/Manejo_laboratorios">
+              <Button className="mx-auto custom-button">
+                Agregar laboratorios
+              </Button>
+            </Link>
+          </Col>
+          <Col>
+            <Link to="http://localhost:5173/Visualizar_Problema">
+              <Button className="mx-auto custom-button">Ver reportes</Button>
+            </Link>
+          </Col>
+        </Row>
       </Container>
     </PaginaBase>
   );
 };
 
-export default Laboratorios;
+export default LaboratoriosAdmin;

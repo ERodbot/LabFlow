@@ -46,17 +46,33 @@ const Reservar = () => {
     console.log("Acronym:", acronym);
   };
 
+  <Dropdown
+    as={ButtonGroup}
+    onClick={(event) => handleLabChange(event)}
+    className="m-3"
+  >
+    <Button style={{ backgroundColor: "#7CB755", border: "none" }}>
+      Laboratorio
+    </Button>
+    <Dropdown.Toggle
+      style={{ backgroundColor: "#7CB755", border: "none" }}
+      split
+      id="dropdown-split-lab"
+    ></Dropdown.Toggle>
+    <Dropdown.Menu>
+      {reservar.labs.map((laboratorio) => (
+        <Dropdown.Item key={laboratorio}>{laboratorio}</Dropdown.Item>
+      ))}
+    </Dropdown.Menu>
+  </Dropdown>;
+
   return (
     <PaginaBase>
       <Container style={{ marginTop: "10%" }}>
         <Card className="w-50 mx-auto border-0">
-          <Dropdown
-            as={ButtonGroup}
-            onClick={(event) => handleLabChange(event)}
-            className="m-3"
-          >
+          <Dropdown as={ButtonGroup} className="m-3">
             <Button style={{ backgroundColor: "#7CB755", border: "none" }}>
-              Laboratorio
+              {lab ? lab : "Laboratorio"}
             </Button>
             <Dropdown.Toggle
               style={{ backgroundColor: "#7CB755", border: "none" }}
@@ -65,33 +81,20 @@ const Reservar = () => {
             ></Dropdown.Toggle>
             <Dropdown.Menu>
               {reservar.labs.map((laboratorio) => (
-                <Dropdown.Item key={laboratorio}>{laboratorio}</Dropdown.Item>
-              ))}
-            </Dropdown.Menu>
-          </Dropdown>
-          <Dropdown as={ButtonGroup} className="m-3">
-            <Button style={{ backgroundColor: "#7CB755", border: "none" }}>
-              Horario
-            </Button>
-            <Dropdown.Toggle
-              style={{ backgroundColor: "#7CB755", border: "none" }}
-              split
-              id="dropdown-split-space"
-            />
-            <Dropdown.Menu>
-              {reservar.espacio.map((espacioTemporal) => (
                 <Dropdown.Item
-                  key={espacioTemporal}
-                  onSelect={() => handleSpaceChange(espacioTemporal)}
+                  onClick={() => setLab(laboratorio)}
+                  key={laboratorio}
+                  eventKey={laboratorio}
                 >
-                  {espacioTemporal}
+                  {laboratorio}
                 </Dropdown.Item>
               ))}
             </Dropdown.Menu>
           </Dropdown>
+
           <Dropdown as={ButtonGroup} className="m-3">
             <Button style={{ backgroundColor: "#7CB755", border: "none" }}>
-              Fecha
+              {date ? date : "Fecha"}
             </Button>
             <Dropdown.Toggle
               style={{ backgroundColor: "#7CB755", border: "none" }}
@@ -101,50 +104,70 @@ const Reservar = () => {
             <Dropdown.Menu>
               {reservar.fechas.map((fechareserva) => (
                 <Dropdown.Item
+                  onClick={() => setDate(fechareserva)}
                   key={fechareserva}
-                  onSelect={() => handleDateChange(fechareserva)}
+                  eventKey={fechareserva}
                 >
                   {fechareserva}
                 </Dropdown.Item>
               ))}
             </Dropdown.Menu>
           </Dropdown>
+
+          <Dropdown as={ButtonGroup} className="m-3">
+            <Button style={{ backgroundColor: "#7CB755", border: "none" }}>
+              {space ? space : "Espacio temporal"}
+            </Button>
+            <Dropdown.Toggle
+              style={{ backgroundColor: "#7CB755", border: "none" }}
+              split
+              id="dropdown-split-space"
+            />
+            <Dropdown.Menu>
+              {reservar.espacio.map((espacioTemporal) => (
+                <Dropdown.Item
+                  onClick={() => setSpace(espacioTemporal)}
+                  key={espacioTemporal}
+                  eventKey={espacioTemporal}
+                >
+                  {espacioTemporal}
+                </Dropdown.Item>
+              ))}
+            </Dropdown.Menu>
+          </Dropdown>
+
           <Form.Group className="m-3" controlId="descripcionCourse">
-            <Form.Label>Course</Form.Label>
+            <Form.Label>Curso</Form.Label>
             <Form.Control
               as="textarea"
               rows={3}
-              placeholder="Course"
               value={course}
               onChange={(e) => setCourse(e.target.value)}
             />
           </Form.Group>
           <Form.Group className="m-3" controlId="descripcionGroup">
-            <Form.Label>Group</Form.Label>
+            <Form.Label>Grupo</Form.Label>
             <Form.Control
               as="textarea"
               rows={3}
-              placeholder="Group"
               value={group}
               onChange={(e) => setGroup(e.target.value)}
             />
           </Form.Group>
           <Form.Group className="m-3" controlId="descripcionObservations">
-            <Form.Label>Observations</Form.Label>
+            <Form.Label>Observaciones</Form.Label>
             <Form.Control
               as="textarea"
               rows={3}
-              placeholder="Observations"
               value={observations}
               onChange={(e) => setObservations(e.target.value)}
             />
           </Form.Group>
           <Form.Group className="m-3" controlId="descripcionAcronym">
-            <Form.Label>Acronym</Form.Label>
+            <Form.Label>Siglas del curso</Form.Label>
             <Form.Control
               as="textarea"
               rows={3}
-              placeholder="Acronym"
               value={acronym}
               onChange={(e) => setAcronym(e.target.value)}
             />
@@ -158,9 +181,6 @@ const Reservar = () => {
         >
           Solicitar Reservación
         </Button>
-        <h1>{lab} hola</h1>
-        <h1>{date}</h1>
-        <h1>{space}</h1>
       </Container>
     </PaginaBase>
   );

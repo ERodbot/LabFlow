@@ -8,6 +8,13 @@ import ReservacionesInfo from "./Pages/Mis reservaciones info/ReservacionesInfo.
 import MisReservaciones from "./Pages/Mis reservaciones/MisReservaciones.jsx";
 import Reservar from "./Pages/Reservar/Reservar.jsx";
 import Disponibilidad from "./Pages/Disponibilidad/Disponibilidad.jsx";
+import AceptarDenegarReserva from "./Pages/AceptarDenegarReserva/AceptarDenegarReserva.jsx";
+import VisualizarProblema from "./Pages/VisualizarProblema/VisualizarProblema.jsx";
+import ManejoGeneral from "./Pages/ManejoGeneral/ManejoGeneral.jsx";
+import ManejoLabs from "./Pages/ManejoLabs/ManejoLabs.jsx";
+import AdministrarUsuario from "./Pages/AdministrarUsuario/AdministrarUsuario.jsx";
+import LaboratoriosAdmin from "./Pages/LaboratoriosAdmin/LaboratoriosAdmin.jsx";
+import AdministrarReservaciones from "./Pages/AdministrarReservaciones/AdministrarReservaciones.jsx";
 
 const Router = createBrowserRouter([
   {
@@ -45,6 +52,34 @@ const Router = createBrowserRouter([
   {
     path: "/Disponibilidad",
     element: <Disponibilidad />,
+  },
+  {
+    path: "/Aceptar_Denegar",
+    element: <AceptarDenegarReserva />,
+  },
+  {
+    path: "/Visualizar_Problema",
+    element: <VisualizarProblema />,
+  },
+  {
+    path: "/Manejo_General",
+    element: <ManejoGeneral />,
+  },
+  {
+    path: "/Manejo_Laboratorios",
+    element: <ManejoLabs />,
+  },
+  {
+    path: "/Administrar_Usuario",
+    element: <AdministrarUsuario />,
+  },
+  {
+    path: "/Laboratorio_admin",
+    element: <LaboratoriosAdmin />,
+  },
+  {
+    path: "/Administrar_reservacion",
+    element: <AdministrarReservaciones />,
   },
 ]);
 

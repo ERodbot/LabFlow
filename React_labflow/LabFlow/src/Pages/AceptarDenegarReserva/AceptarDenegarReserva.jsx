@@ -7,16 +7,15 @@ import { Link } from "react-router-dom";
 
 /*Quitar despues, prueba para front-end*/
 import reservacioninfo from "./reservacioninfotest.json";
-
 /*Custom css*/
-import "./ReservacionesInfo.css";
+import "./AceptarDenegarReserva.css";
 
-const ReservacionesInfo = () => {
+const AceptarDenegarReserva = () => {
   const [labinfo, setLabfinfo] = useState(reservacioninfo);
   console.log(labinfo);
   return (
     <PaginaBase>
-      <Card className="p-2 w-75 mx-auto mt-5">
+      <Card className="p-2 w-75 mx-auto" style={{ marginTop: "8rem" }}>
         <Row>
           {/* Column 1 with static titles */}
           <Col md={6}>
@@ -79,18 +78,30 @@ const ReservacionesInfo = () => {
         </Row>
       </Card>
       <Container className="d-flex justify-content-center my-5">
-        <Link to="http://localhost:5173/PrincipalUsuario">
-          <Button style={{ backgroundColor: "#41ADE7", border: "none" }}>
-            Añadir laboratorios
-          </Button>
-        </Link>
-        <Link to="http://localhost:5173/PrincipalUsuario">
-          <Button style={{ backgroundColor: "#41ADE7", border: "none" }}>
-            Añadir laboratorios
-          </Button>
-        </Link>
+        <Row>
+          <Col>
+            <Link to="http://localhost:5173/PrincipalUsuario">
+              <Button
+                className="mx-auto"
+                style={{ backgroundColor: "#41ADE7", border: "none" }}
+              >
+                Añadir laboratorios
+              </Button>
+            </Link>
+          </Col>
+          <Col>
+            <Link to="http://localhost:5173/PrincipalUsuario">
+              <Button
+                className="mx-auto"
+                style={{ backgroundColor: "#41ADE7", border: "none" }}
+              >
+                Añadir laboratorios
+              </Button>
+            </Link>
+          </Col>
+        </Row>
       </Container>
     </PaginaBase>
   );
 };
-export default ReservacionesInfo;
+export default AceptarDenegarReserva;

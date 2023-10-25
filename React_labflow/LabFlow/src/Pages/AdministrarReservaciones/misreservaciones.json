@@ -1,0 +1,25 @@
+{
+    "reservas": [
+    {
+      "Fecha": "2023-10-25",
+      "Hora": "14:00",
+      "Laboratorio": "Laboratorio A",
+      "Estado": "Confirmada",
+      "Usuario": "User1"
+    },
+    {
+      "Fecha": "2023-10-26",
+      "Hora": "09:30",
+      "Laboratorio": "Laboratorio B",
+      "Estado": "Pendiente",
+      "Usuario": "User2"
+    },
+    {
+      "Fecha": "2023-10-26",
+      "Hora": "1:00",
+      "Laboratorio": "Laboratorio A",
+      "Estado": "Pendiente",
+      "Usuario": "User1"
+    }
+  ]
+}
