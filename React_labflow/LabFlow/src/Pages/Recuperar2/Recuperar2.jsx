@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./Init.css";
+import "./Recuperar2.css";
 import NavbarInicio from "../../Componentes/NavbarInicio/NavbarInicio";
 import {
   Container,
@@ -10,12 +10,12 @@ import {
   Button,
 } from "react-bootstrap";
 
-const Login = () => {
-  const [email, setEmail] = useState("");
+const Recuperar2 = () => {
+  const [code, setCode] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+  const handleCodeChange = (e) => {
+    setCode(e.target.value);
   };
 
   const handlePasswordChange = (e) => {
@@ -24,8 +24,8 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // You can access the form data from email and password here
-    console.log("Email:", email);
+    // You can access the form data from code and password here
+    console.log("Code:", code);
     console.log("Password:", password);
     // Add any other logic you need to handle form submission
   };
@@ -34,26 +34,26 @@ const Login = () => {
     <>
       <Container>
         <NavbarInicio
-          linkName={"registrarse"}
-          link={"http://localhost:5173/registrarse"}
+          linkName={"iniciar sesión"}
+          link={"http://localhost:5173/iniciar_sesion"}
         ></NavbarInicio>
       </Container>
       <Container>
         <Form id="form" onSubmit={handleSubmit}>
           <Form.Group className="input-control">
-            <Form.Label htmlFor="email">Correo electrónico</Form.Label>
+            <Form.Label htmlFor="code">Código de recuperación</Form.Label>
             <InputGroup>
               <FormControl
-                type="email"
-                id="email"
-                value={email}
-                onChange={handleEmailChange}
+                type="text"
+                id="code"
+                value={code}
+                onChange={handleCodeChange}
               />
               <div className="error"></div>
             </InputGroup>
           </Form.Group>
           <Form.Group className="input-control">
-            <Form.Label htmlFor="password">Password</Form.Label>
+            <Form.Label htmlFor="password">Nueva Contraseña</Form.Label>
             <InputGroup>
               <FormControl
                 type="password"
@@ -64,19 +64,15 @@ const Login = () => {
               <div className="error"></div>
             </InputGroup>
           </Form.Group>
-          <div>
-            <a href="./recuperar" className="recuperar-c">
-              ¿Olvidaste tu contraseña?
-            </a>
-          </div>
+          <div></div>
           <div className="input-control">
             <Button
               variant="primary"
               type="submit"
               className="btn mt-3"
-              href="./principal_usuario"
+              href="./iniciar_sesion"
             >
-              Iniciar sesión
+              Recuperar cuenta
             </Button>
           </div>
         </Form>
@@ -85,4 +81,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Recuperar2;

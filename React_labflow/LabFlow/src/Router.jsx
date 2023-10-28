@@ -1,20 +1,23 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "./App.jsx";
 import Init from "./Pages/IniciarSesion/Init.jsx";
-import PrincipalUsuario from "./Pages/PrincipalUsuario/PrincipalUsuario.jsx";
-import Laboratorios from "./Pages/Laboratorios/Laboratorios.jsx";
-import Reportes from "./Pages/Reportes/Reportes.jsx";
-import ReservacionesInfo from "./Pages/Mis reservaciones info/ReservacionesInfo.jsx";
-import MisReservaciones from "./Pages/Mis reservaciones/MisReservaciones.jsx";
-import Reservar from "./Pages/Reservar/Reservar.jsx";
-import Disponibilidad from "./Pages/Disponibilidad/Disponibilidad.jsx";
-import AceptarDenegarReserva from "./Pages/AceptarDenegarReserva/AceptarDenegarReserva.jsx";
-import VisualizarProblema from "./Pages/VisualizarProblema/VisualizarProblema.jsx";
-import ManejoGeneral from "./Pages/ManejoGeneral/ManejoGeneral.jsx";
-import ManejoLabs from "./Pages/ManejoLabs/ManejoLabs.jsx";
-import AdministrarUsuario from "./Pages/AdministrarUsuario/AdministrarUsuario.jsx";
-import LaboratoriosAdmin from "./Pages/LaboratoriosAdmin/LaboratoriosAdmin.jsx";
-import AdministrarReservaciones from "./Pages/AdministrarReservaciones/AdministrarReservaciones.jsx";
+import Principal from "./Pages/Principal/Principal.jsx";
+import Laboratorios from "./Pages/Usuario/Laboratorios/Laboratorios.jsx";
+import Reportes from "./Pages/Usuario/Reportes/Reportes.jsx";
+import ReservacionesInfo from "./Pages/Usuario/Mis reservaciones info/ReservacionesInfo.jsx";
+import MisReservaciones from "./Pages/Usuario/Mis reservaciones/MisReservaciones.jsx";
+import Reservar from "./Pages/Usuario/Reservar/Reservar.jsx";
+import Disponibilidad from "./Pages/Usuario/Disponibilidad/Disponibilidad.jsx";
+import AceptarDenegarReserva from "./Pages/admin/AceptarDenegarReserva/AceptarDenegarReserva.jsx";
+import VisualizarProblema from "./Pages/admin/VisualizarProblema/VisualizarProblema.jsx";
+import ManejoGeneral from "./Pages/admin/ManejoGeneral/ManejoGeneral.jsx";
+import ManejoLabs from "./Pages/admin/ManejoLabs/ManejoLabs.jsx";
+import AdministrarUsuario from "./Pages/admin/AdministrarUsuario/AdministrarUsuario.jsx";
+import LaboratoriosAdmin from "./Pages/admin/LaboratoriosAdmin/LaboratoriosAdmin.jsx";
+import AdministrarReservaciones from "./Pages/admin/AdministrarReservaciones/AdministrarReservaciones.jsx";
+import Recuperar1 from "./Pages/Recuperar1/Recuperar1.jsx";
+import Recuperar2 from "./Pages/Recuperar2/Recuperar2.jsx";
+import RegistrationForm from "./Pages/Registro/Registro.jsx";
 
 const Router = createBrowserRouter([
   {
@@ -22,12 +25,24 @@ const Router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/login",
+    path: "/Iniciar_sesion",
     element: <Init />,
   },
   {
-    path: "/PrincipalUsuario",
-    element: <PrincipalUsuario />,
+    path: "/Registrarse",
+    element: <RegistrationForm />,
+  },
+  {
+    path: "/Recuperar",
+    element: <Recuperar1 />,
+  },
+  {
+    path: "/Recuperar2",
+    element: <Recuperar2 />,
+  },
+  {
+    path: "/Principal",
+    element: <Principal />,
   },
   {
     path: "/Reservar",
@@ -74,7 +89,7 @@ const Router = createBrowserRouter([
     element: <AdministrarUsuario />,
   },
   {
-    path: "/Laboratorio_admin",
+    path: "/Laboratorios_admin",
     element: <LaboratoriosAdmin />,
   },
   {

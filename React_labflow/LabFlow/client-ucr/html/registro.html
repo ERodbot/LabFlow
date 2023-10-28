@@ -1,74 +1,116 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/client-ucr/css/styles.css">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Form, Button, InputGroup, FormControl } from 'react-bootstrap';
 
-    <!-- jQuery library -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+function RegistrationForm() {
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [apellido1, setApellido1] = useState('');
+  const [apellido2, setApellido2] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
-    <!-- Popper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // You can access the form data from the individual state variables (email, name, apellido1, etc.)
+    console.log('Email:', email);
+    console.log('Name:', name);
+    console.log('Primer Apellido:', apellido1);
+    console.log('Segundo Apellido:', apellido2);
+    console.log('Contraseña:', password);
+    console.log('Confirmación de Contraseña:', confirmPassword);
+    // Add the necessary logic to handle the form submission.
+  };
 
-    <!-- Latest compiled JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-<body>
-  <div>
-    <nav class = "nav navbar-expand--sm custom-navbar"> 
-        <a class="navbar-brand mr-auto" class="image-inicio" href="index.html">
-            <img class="rounded image-inicio" src="/client-ucr/images/favicon ucr.png" alt="Inicio">  
-        </a>
-        <ul class="navbar-nav my-auto">
-            <li class="nav-item" style="padding-right: 20px;">
-                <a class="a-nav nav-link btn" href="index.html">Iniciar sesión</a>
-            </li>
-        </ul>
-    </nav>
-  </div>
-  <div class="container">
-    <form id="form">
-      <div class="input-control">
-        <label for="email">Correo electrónico</label class = "label-form">
-        <input type="email" id="email" name="email">
-        <div class="error"></div>
-      </div>
-      <div class="input-control">
-        <label for="name">Nombre</label class = "label-form">
-        <input type="text" id="name" name="name">
-        <div class="error"></div>
-      </div>
-      <div class="input-control">
-        <label for="apellido1">Primer apellido</label class = "label-form">
-        <input type="text" id="apellido1" name="apellido1">
-        <div class="error"></div>
-      </div>
-      <div class="input-control">
-        <label for="apellido2">Segundo apellido</label class = "label-form">
-        <input type="text" id="apellido2" name="apellido2">
-        <div class="error"></div>
-      </div>
-      <div class="input-control">
-        <label for="password">Contraseña</label class = "label-form">
-        <input type="password" name="password" id="password">
-        <div class="error"></div>
-      </div>
-      <div class="input-control">
-        <label for="c-password">Confirmación de contraseña</label class = "label-form">
-        <input type="password" name="c-password" id="c-password">
-        <div class="error"></div>
-      </div>
-      <div class="input-control">
-        <button class="btn" type="submit">Registrarse</button>
-      </div>
-    </form>
-  </div>
-</body>
-</html>
+  return (
+    <Container>
+      <Form id="form" onSubmit={handleSubmit}>
+        <Form.Group className="input-control">
+          <Form.Label htmlFor="email">Correo electrónico</Form.Label>
+          <InputGroup>
+            <FormControl
+              type="email"
+              id="email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <div className="error"></div>
+          </InputGroup>
+        </Form.Group>
+        <Form.Group className="input-control">
+          <Form.Label htmlFor="name">Nombre</Form.Label>
+          <InputGroup>
+            <FormControl
+              type="text"
+              id="name"
+              name="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <div className="error"></div>
+          </InputGroup>
+        </Form.Group>
+        <Form.Group className="input-control">
+          <Form.Label htmlFor="apellido1">Primer apellido</Form.Label>
+          <InputGroup>
+            <FormControl
+              type="text"
+              id="apellido1"
+              name="apellido1"
+              value={apellido1}
+              onChange={(e) => setApellido1(e.target.value)}
+            />
+            <div className="error"></div>
+          </InputGroup>
+        </Form.Group>
+        <Form.Group className="input-control">
+          <Form.Label htmlFor="apellido2">Segundo apellido</Form.Label>
+          <InputGroup>
+            <FormControl
+              type="text"
+              id="apellido2"
+              name="apellido2"
+              value={apellido2}
+              onChange={(e) => setApellido2(e.target.value)}
+            />
+            <div className="error"></div>
+          </InputGroup>
+        </Form.Group>
+        <Form.Group className="input-control">
+          <Form.Label htmlFor="password">Contraseña</Form.Label>
+          <InputGroup>
+            <FormControl
+              type="password"
+              id="password"
+              name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <div className="error"></div>
+          </InputGroup>
+        </Form.Group>
+        <Form.Group className="input-control">
+          <Form.Label htmlFor="c-password">Confirmación de contraseña</Form.Label>
+          <InputGroup>
+            <FormControl
+              type="password"
+              id="c-password"
+              name="c-password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+            <div className="error"></div>
+          </InputGroup>
+        </Form.Group>
+        <div className="input-control">
+          <Button variant="primary" type="submit" className="btn">
+            Registrarse
+          </Button>
+        </div>
+      </Form>
+    </Container>
+  );
+}
+
+export default RegistrationForm;
