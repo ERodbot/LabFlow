@@ -1,0 +1,20 @@
+{
+    "datos": [
+      {
+        "id": 1,
+        "correo": "usuario1@correo.com",
+        "usuario": "Usuario 1"
+      },
+      {
+        "id": 2,
+        "correo": "usuario2@correo.com",
+        "usuario": "Usuario 2"
+      },
+      {
+        "id": 3,
+        "correo": "usuario3@correo.com",
+        "usuario": "Usuario 3"
+      }
+    ]
+  }
+  

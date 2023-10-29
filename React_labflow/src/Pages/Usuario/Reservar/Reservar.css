@@ -1,0 +1,42 @@
+.textSpace p .infoTitle .reservationProperty {
+    /* Arreglar overflow */
+    overflow: hidden; 
+}
+
+
+.reservationProperty {
+    margin: 0.rem;
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+.infoTitle {
+    margin: 0rem 0rem 2.5rem 0rem;
+    /* 3rem de margen superior e inferior y centrado horizontal */
+  }
+
+.textSpace {
+    margin-top: 1.1rem ;
+    margin-bottom: 1.1rem ;
+    background-color: #F0F3F8;
+    width: 100%;
+    height: 2.2rem;
+}
+
+#custom-button {
+    background-color: #7CB755;
+    border: none;
+} 
+
+.custom-dropdown {
+    background-color: #7CB755;
+    border: none
+}
+
+#custom-container {
+    margin-top: 10%;
+    width: 100%;
+    height: 100%;
+}
+
