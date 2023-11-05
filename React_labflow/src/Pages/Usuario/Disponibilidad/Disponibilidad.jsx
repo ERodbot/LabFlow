@@ -61,6 +61,8 @@ const MyCalendar = () => {
             startAccessor="start"
             endAccessor="end"
             style={{ height: 500 }}
+            min={new Date(0, 0, 0, 7, 0)}
+            max={new Date(0, 0, 0, 19, 0)}
           />
           <Dropdown as={ButtonGroup} className="w-25 mt-5 mb-3 mx-auto">
             <Button id="button-style">
