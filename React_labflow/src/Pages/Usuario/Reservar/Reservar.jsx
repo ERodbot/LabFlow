@@ -17,7 +17,8 @@ const Reservar = () => {
   const [formState, setFormState] = useState({
     lab: null,
     date: null,
-    space: null,
+    inicio: null,
+    final: null,
     course: "",
     group: "",
     observations: "",
@@ -61,7 +62,8 @@ const Reservar = () => {
         <Card className="w-50 mx-auto border-0">
           {createDropdown("Laboratorio", reservar.labs, "lab")}
           {createDropdown("Fecha", reservar.fechas, "date")}
-          {createDropdown("Espacio temporal", reservar.espacio, "space")}
+          {createDropdown("Hora inicio", reservar.horas, "inicio")}
+          {createDropdown("Hora final", reservar.horas, "final")}
 
           {["curso", "grupo", "observaciones", "siglas del curso"].map(
             (field) => (
