@@ -18,7 +18,7 @@ const LaboratorioCard = ({ laboratorio, showIcon }) => {
   };
 
   const redirect = () => {
-    window.location.href = "Manejo_laboratorios";
+    window.location.href = "manejo_labs";
   };
 
   return (

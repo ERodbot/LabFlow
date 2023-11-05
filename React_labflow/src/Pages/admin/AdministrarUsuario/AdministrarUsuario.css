@@ -1,6 +1,8 @@
 .custom-button {
     background-color: #ADC05C;
     border: none; 
-    width: 100%;
     height: 100%;
+    width: 150px; /* Establece el ancho deseado para los botones */
+    margin: 5px; /* Agrega márgenes para separar los botones */
 }
+
