@@ -51,11 +51,11 @@ const ReservacionesInfo = () => {
                 </div>
                 <div className="textSpace">
                   <p className="reservationProperty">
-                    {labinfo.espacio.inicio}
+                    {labinfo.inicio}
                   </p>
                 </div>
                 <div className="textSpace">
-                  <p className="reservationProperty">{labinfo.espacio.final}</p>
+                  <p className="reservationProperty">{labinfo.final}</p>
                 </div>
                 <div className="textSpace">
                   <p className="reservationProperty">{labinfo.usuario}</p>
