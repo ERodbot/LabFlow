@@ -1,18 +1,22 @@
 {
   "name": "api-ucr",
-  "version": "0.0.1",
-  "description": "api rest para la escuela de lenguas modernas",
+  "version": "1.0.0",
+  "description": "",
   "main": "index.js",
-  "author": "mauricio fernandez",
-  "license": "MIT",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon src/index.js"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "mongoose": "^7.6.2"
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.0",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"

@@ -1,6 +1,7 @@
 import PaginaBase from "../PaginaBase";
 import { Container, Carousel } from "react-bootstrap"; // Importing Container and Carousel components
-import React from "react";
+import React, { useEffect } from "react";
+import { useAuth } from "../../contexts/auth";
 
 import "./Principal.css";
 import image1 from "../../images/favicon ucr.png";
@@ -8,9 +9,11 @@ import image2 from "../../images/favicon ucr.png";
 import image3 from "../../images/favicon ucr.png";
 
 const Principal = () => {
+  const { user } = useAuth();
+
   return (
-    <PaginaBase>
-      <hr class="line" />
+    <PaginaBase isadmin = {user.admin}>
+      <hr className="line" />
       <Container className="d-flex justify-content-center align-items-center">
         <Carousel className="carousel-p-style mx-auto">
           <Carousel.Item>

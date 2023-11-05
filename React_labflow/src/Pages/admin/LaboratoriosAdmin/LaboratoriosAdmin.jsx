@@ -32,7 +32,7 @@ const LaboratoriosAdmin = () => {
       <Container className="d-flex justify-content-center my-5">
         <Row>
           <Col>
-            <Link to="http://localhost:5173/Manejo_laboratorios">
+            <Link to="/manejo_labs">
               <Button className="mx-auto custom-button">
                 Agregar laboratorios
               </Button>

@@ -3,8 +3,13 @@ import { Container, Table, InputGroup, FormControl } from "react-bootstrap";
 import datosEjemplo from "./datos.json";
 import PaginaBase from "../../PaginaBase";
 import "./ManejoGeneral.css";
+import { useAuth } from "../../../contexts/auth";
 
 const ManejoGeneral = () => {
+
+  const { user } = useAuth();
+  console.log(user)
+  
   const [datos, setDatos] = useState(datosEjemplo.datos);
   const [botonSeleccionado, setBotonSeleccionado] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");

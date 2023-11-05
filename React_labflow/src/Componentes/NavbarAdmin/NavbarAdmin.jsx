@@ -32,7 +32,7 @@ const NavbarAdmin = () => {
               Manejo General
             </Nav.Link>
             <Nav.Link
-              href="/Laboratorio_admin"
+              href="/laboratorios_admin"
               className="mx-4 custom-navbar-font"
             >
               Manejar Laboratorios

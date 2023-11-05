@@ -9,6 +9,7 @@ import {
   FormControl,
 } from "react-bootstrap";
 import "./Registro.css";
+import { useNavigate } from "react-router-dom";
 
 function RegistrationForm() {
   const [email, setEmail] = useState("");
@@ -20,21 +21,14 @@ function RegistrationForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // You can access the form data from the individual state variables (email, name, apellido1, etc.)
-    console.log("Email:", email);
-    console.log("Name:", name);
-    console.log("Primer Apellido:", apellido1);
-    console.log("Segundo Apellido:", apellido2);
-    console.log("Contraseña:", password);
-    console.log("Confirmación de Contraseña:", confirmPassword);
-    // Add the necessary logic to handle the form submission.
+    
   };
 
   return (
     <Container>
       <NavbarInicio
-        linkName={"iniciar sesión"}
-        link={"http://localhost:5173/iniciar_sesion"}
+        linkName={"Iniciar sesión"}
+        link={"/iniciar_sesion"}
       ></NavbarInicio>
       <Form id="form" onSubmit={handleSubmit}>
         <Form.Group className="input-control">

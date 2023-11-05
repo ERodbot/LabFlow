@@ -5,14 +5,16 @@ import NavbarUsuario from "../Componentes/NavbarUsuario/NavbarUsuario";
 /*Custom css*/
 import "./PB.css";
 import NavbarAdmin from "../Componentes/NavbarAdmin/NavbarAdmin";
+import { useAuth } from "../contexts/auth";
 
-const PaginaBase = ({ children, isadmin = false }) => {
+const PaginaBase = ({ children}) => {
+  const {user} = useAuth();
   return (
     <>
       <div className="pagina-base" styles={{ marginBottom: "10rem" }}>
         {/* navbar se incluye como componente, "children son los "
        componentes hijos (el front end de cada pagina individual)*/}
-        {isadmin ? <NavbarAdmin /> : <NavbarUsuario />}
+        {user.admin ? <NavbarAdmin /> : <NavbarUsuario />}
       </div>
       <div>
         <div>{children}</div>

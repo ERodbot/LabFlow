@@ -22,7 +22,7 @@ const ManejoLabs = () => {
   const [space, setSpace] = useState(lab.horario);
 
   return (
-    <PaginaBase>
+    <PaginaBase isadmin = {true}>
       <Container className="margin-custom">
         <Card className="p-5 w-50 mx-auto mt-5">
           <Form>

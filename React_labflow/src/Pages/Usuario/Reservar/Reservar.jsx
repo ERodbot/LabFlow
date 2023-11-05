@@ -10,8 +10,10 @@ import {
 import PaginaBase from "../../PaginaBase";
 import "./Reservar.css";
 import reservar from "./reservar.json";
+import { useAuth } from "../../../contexts/auth";
 
 const Reservar = () => {
+  const { user } = useAuth();
   const [formState, setFormState] = useState({
     lab: null,
     date: null,
@@ -52,9 +54,9 @@ const Reservar = () => {
       </Dropdown.Menu>
     </Dropdown>
   );
-
+  
   return (
-    <PaginaBase>
+    <PaginaBase /*isadmin = {user.admin}*/> 
       <Container id="custom-container">
         <Card className="w-50 mx-auto border-0">
           {createDropdown("Laboratorio", reservar.labs, "lab")}

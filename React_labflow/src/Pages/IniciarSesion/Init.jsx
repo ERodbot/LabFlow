@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, createContext, useContext, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Init.css";
 import NavbarInicio from "../../Componentes/NavbarInicio/NavbarInicio";
@@ -9,10 +9,16 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/auth";"";
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const { iniciar_sesion, user, isAuthenticated } = useAuth();
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -22,19 +28,20 @@ const Login = () => {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async  (e) => {
     e.preventDefault();
-    // You can access the form data from email and password here
-    console.log("Email:", email);
-    console.log("Password:", password);
-    // Add any other logic you need to handle form submission
+    iniciar_sesion({email, password});
   };
 
+  useEffect(() => {
+    if(isAuthenticated)
+    navigate("/principal");
+  }, [isAuthenticated]);
   return (
     <>
       <Container>
         <NavbarInicio
-          linkName={"registrarse"}
+          linkName={"Registrarse"}
           link={"http://localhost:5173/registrarse"}
         ></NavbarInicio>
       </Container>
@@ -74,7 +81,6 @@ const Login = () => {
               variant="primary"
               type="submit"
               className="btn mt-3"
-              href="./principal_usuario"
             >
               Iniciar sesión
             </Button>
