@@ -6,7 +6,7 @@ const reservaLab = (laboratorio, fecha) => axios.get("reservaLab", {params: {lab
 
 
 export {
-    updateLab
+    updateLab,
     LabsDetails,
     reservaLab
 };

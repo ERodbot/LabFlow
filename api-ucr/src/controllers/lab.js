@@ -66,7 +66,7 @@ const reservaLab = async (req, res) => {
 };
 
 module.exports = {
-    updateLab
-    reservaLab
-    labsDetails,
+    updateLab,
+    reservaLab,
+    labsDetails
 }
