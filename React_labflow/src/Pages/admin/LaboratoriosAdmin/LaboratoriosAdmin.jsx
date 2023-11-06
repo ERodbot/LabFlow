@@ -9,6 +9,8 @@ import { Link } from "react-router-dom";
 
 import {LabsDetails} from "../../../api/lab.jsx"
 
+
+
 /*Custom css*/
 import "./LaboratoriosAdmin.css";
 
@@ -43,13 +45,6 @@ const LaboratoriosAdmin = () => {
       </Container>
       <Container className="d-flex justify-content-center my-5">
         <Row>
-          <Col>
-            <Link to="/manejo_labs">
-              <Button className="mx-auto custom-button">
-                Agregar laboratorios
-              </Button>
-            </Link>
-          </Col>
           <Col>
             <Link to="Visualizar_Problema">
               <Button className="mx-auto custom-button">Ver reportes</Button>

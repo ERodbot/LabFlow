@@ -15,18 +15,42 @@ import "./ManejoLabs.css";
 import guardar from "../../../images/save.svg";
 import borrar from "../../../images/delete.svg";
 import añadir from "../../../images/add.svg";
+import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import {updateLab} from "../../../api/lab.jsx"
 
 const ManejoLabs = () => {
 
+  const location = useLocation();
+  const [lab, setLab] = useState(location.state?.lab);
+  const navigate = useNavigate();
+
+  console.log(lab);
+  console.log(lab._id);
+
 
   // fetch a detalles de laboratorio especifico
-
   const interval = ["semana", "mes", "días"];
   const [nombre, setNombre] = useState(lab.nombre);
   const [ubicacion, setUbicacion] = useState(lab.ubicacion);
-  const [amount, setAmount] = useState('');
-  const [selectedInterval, setSelectedInterval] = useState(interval[2]);
+  const [amount, setAmount] = useState(lab.mantenimiento.amount);
+  const [selectedInterval, setSelectedInterval] = useState(lab.mantenimiento.interval);
  
+  const onClick = (e) => {
+    const id = lab._id;
+    const doc = {
+      nombre: nombre,
+      ubicacion: ubicacion,
+      mantenimiento: {
+        amount: amount,
+        interval: selectedInterval
+      }
+    }
+    const res = updateLab(doc, id);
+    e.preventDefault();
+    navigate("/laboratorios_admin");
+
+  };
 
   return (
     <PaginaBase>
@@ -91,18 +115,10 @@ const ManejoLabs = () => {
             <Row className="align-items-center">
               <Col>
                 <Button className="custom-button my-auto">
-                  <img className="icon" src={guardar} alt="guardar" />
+                  <img className="icon" src={guardar} alt="guardar" onClick={onClick}/>
                 </Button>
               </Col>
-              <Col>
-                <Button className="custom-button my-auto">
-                  <img className="icon" src={borrar} alt="borrar" />
-                </Button>
-              </Col>
-              <Col>
-                <Button className="custom-button my-auto">
-                  <img className="icon" src={añadir} alt="borrar" />
-                </Button>
+              <Col> 
               </Col>
             </Row>
           </Container>

@@ -21,8 +21,6 @@ const NavbarUsuario = ({name}) => {
 
   const { user, logout } = useAuth();
 
-  console.log(user);
-
   const handleLogout = () => {
     logout();
     console.log('User logged out');

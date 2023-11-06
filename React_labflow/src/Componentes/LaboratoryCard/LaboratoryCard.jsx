@@ -1,12 +1,16 @@
 // LaboratorioCard.js
 import React, { useState } from "react";
 import { Card, Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./LaboratoryCard.css";
 import labbigicon from "../../images/labbigicon.jpg";
-import ucricon from "../../images/edit.svg";
+import editicon from "../../images/edit.svg";
+import { Navigate } from "react-router-dom";
+
 
 const LaboratorioCard = ({ laboratorio, showIcon }) => {
+  const navigate = useNavigate();
+
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -18,7 +22,7 @@ const LaboratorioCard = ({ laboratorio, showIcon }) => {
   };
 
   const redirect = () => {
-    window.location.href = "manejo_labs";
+    navigate("/manejo_labs", { state: { lab: laboratorio } })
   };
 
 
@@ -55,7 +59,7 @@ const LaboratorioCard = ({ laboratorio, showIcon }) => {
             <img
               onClick={redirect}
               className="custom-icon"
-              src={ucricon}
+              src={editicon}
               alt="editar lab"
             />
           )}

@@ -10,6 +10,33 @@ const labsDetails = async (req, res) => {
     }
 }
 
+const updateLab = async (req, res) => {
+    const { id } = req.query; 
+    const { nombre, ubicacion, mantenimiento } = req.body; 
+    if (!nombre || !ubicacion || !mantenimiento) {
+        return res.status(400).json({ message: "Se requieren nombre, ubicacion y mantenimiento" });
+    }
+
+    try {
+        const updatedLaboratorio = await Lab.findByIdAndUpdate(id, {
+            nombre,
+            ubicacion,
+            mantenimiento
+        },); 
+
+        if (!updatedLaboratorio) {
+            return res.status(404).json({ message: "Laboratorio no encontrado" });
+        }
+
+        res.json(updatedLaboratorio);
+    } catch (error) {
+        res.status(500).json({ message: "Error al actualizar el laboratorio", error: error.message });
+    }
+};
+
+
+
 module.exports = {
-    labsDetails
+    labsDetails,
+    updateLab
 }
