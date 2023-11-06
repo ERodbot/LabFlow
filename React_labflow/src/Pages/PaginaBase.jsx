@@ -9,12 +9,13 @@ import { useAuth } from "../contexts/auth";
 
 const PaginaBase = ({ children}) => {
   const {user} = useAuth();
+
   return (
     <>
       <div className="pagina-base" styles={{ marginBottom: "10rem" }}>
         {/* navbar se incluye como componente, "children son los "
        componentes hijos (el front end de cada pagina individual)*/}
-        {user.admin ? <NavbarAdmin /> : <NavbarUsuario />}
+        {user.admin ? <NavbarAdmin name = {user.nombre} /> : <NavbarUsuario name = {user.nombre}/>}
       </div>
       <div>
         <div>{children}</div>

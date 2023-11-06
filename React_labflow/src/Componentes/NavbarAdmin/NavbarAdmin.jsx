@@ -4,6 +4,8 @@ import { useState, useEffect, useReducer } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { useAuth } from "../../contexts/auth";
+import { NavDropdown } from "react-bootstrap";
 
 /*Custom css*/
 import "./NavbarAdmin.css";
@@ -11,7 +13,15 @@ import "./NavbarAdmin.css";
 /*Imagenes*/
 import ucrlogo from "../../images/logotipoucr.png";
 
-const NavbarAdmin = () => {
+const NavbarAdmin = ({name}) => {
+  const { user, logout } = useAuth();
+
+  console.log(user);
+  const handleLogout = () => {
+    logout();
+    console.log('User logged out');
+  };
+
   return (
     <Navbar className="navbar navbar-expand-sm custom-navbar " fixed="top">
       <Container>
@@ -37,6 +47,12 @@ const NavbarAdmin = () => {
             >
               Manejar Laboratorios
             </Nav.Link>
+          </Nav>
+          <Nav>
+            <NavDropdown
+            title = {name} >
+            <NavDropdown.Item onClick={handleLogout}>Cerrar sesión</NavDropdown.Item>
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>

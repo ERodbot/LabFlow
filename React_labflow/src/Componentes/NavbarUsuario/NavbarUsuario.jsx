@@ -11,15 +11,20 @@ import "./NavbarUsuario.css";
 /*Imagenes*/
 import ucrlogo from "../../images/logotipoucr.png";
 import { NavDropdown } from "react-bootstrap";
+import { useAuth } from "../../contexts/auth";
 
 
 
 
 
-const NavbarUsuario = () => {
+const NavbarUsuario = ({name}) => {
+
+  const { user, logout } = useAuth();
+
+  console.log(user);
 
   const handleLogout = () => {
-    // Handle logout logic here
+    logout();
     console.log('User logged out');
   };
 
@@ -52,7 +57,7 @@ const NavbarUsuario = () => {
           </Nav>
           <Nav>
             <NavDropdown
-            title="Daniel">
+            title={name}>
             <NavDropdown.Item onClick={handleLogout}>Cerrar sesión</NavDropdown.Item>
             </NavDropdown>
           </Nav>

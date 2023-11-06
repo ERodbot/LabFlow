@@ -39,6 +39,7 @@ const register = async (req, res) => {
         res.json({
             id: userSaved._id,
             email: userSaved.email,
+
         });
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -59,6 +60,7 @@ const verifyToken = async (req, res) => {
         id: userFound._id,
         email: userFound.email,
         admin: userFound.admin,
+        nombre: userFound.nombre,
     });
     });
 };
@@ -94,7 +96,8 @@ const login = async (req,res)=>{
         res.json({
             id: userFound._id,
             email: userFound.email,
-            admin: userFound.admin
+            admin: userFound.admin,
+            nombre: userFound.nombre,
         });
         } catch (error) {
         return res.status(500).json({ message: error.message });
