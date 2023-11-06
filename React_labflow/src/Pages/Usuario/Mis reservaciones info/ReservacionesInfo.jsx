@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import { cancelReserva } from "../../../api/reserva";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -16,15 +18,13 @@ const ReservacionesInfo = () => {
   const location = useLocation();
   const [reservacionInfo, setReservaInfo] = useState(location.state?.reservaInfo);
 
-  const eliminateReservation = (id) => {
-    console.log(id);
-  };
-
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     const options = { year: "numeric", month: "long", day: "numeric" };
     return date.toLocaleDateString('es-ES', options);
   };
+
+  const navigate = useNavigate();
 
   return (
     <PaginaBase>
@@ -94,7 +94,17 @@ const ReservacionesInfo = () => {
         <Link to="/mis_reservaciones">
           <Button
             id="button-style"
-            onClick={() => eliminateReservation(reservacionInfo._id)}
+            onClick={async () => {
+              try {
+                console.log(reservacionInfo._id);
+                const response = await cancelReserva(reservacionInfo._id);
+                console.log(response);
+                navigate("/mis_reservaciones");
+              } catch (error) {
+                console.log("Error al cancelar reservación: ", error);
+              }
+            }
+          }
           >
             Cancelar reservación.
           </Button>

@@ -13,7 +13,7 @@ const getReservasEmail = async (req, res) => {
     } catch (error) {
         return res.status(500).json({ message: error.message });
     }
-}
+};
 
 const getReservasInfo = async (req, res) => {
     try {
@@ -30,7 +30,25 @@ const getReservasInfo = async (req, res) => {
     }
 };
 
+const cancelReserva = async (req, res) => {
+    try {
+        const { id } = req.query;
+
+        if (!id) {
+            return res.status(400).json({ message: "Id is required"});
+        }
+
+        const reserva = await Reserva.findById(id);
+        reserva.estado = 'Cancelada';
+        reserva.save();
+        res.json(reserva);
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+};
+
 module.exports = {
     getReservasEmail,
-    getReservasInfo
+    getReservasInfo,
+    cancelReserva
 }

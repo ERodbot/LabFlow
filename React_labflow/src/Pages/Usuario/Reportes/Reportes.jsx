@@ -1,19 +1,59 @@
 import PaginaBase from "../../PaginaBase";
 import React from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { LabsDetails } from "../../../api/lab";
+import { enviarReporte } from "../../../api/reporte";
+import { useNavigate } from "react-router-dom";
 
 const Reportes = () => {
+  
   const [problema, setProblema] = React.useState("");
   const [descripcion, setDescripcion] = React.useState("");
+  const [laboratorios, setLaboratorios] = React.useState([]);
+  const [selectedLaboratorio, setSelectedLaboratorio] = React.useState("");
+  const navigate = useNavigate();
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await LabsDetails();
+        const labNombres = response.data.map((lab) => lab.nombre);
+        setLaboratorios(labNombres);
+
+        if (labNombres.length > 0) {
+          setSelectedLaboratorio(labNombres[0]);
+        }
+
+      } catch (error) {
+        console.log("Error fetching lab details: ", error);
+      }
+    };
+    fetchData();
+  }, []);
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent the default form submission
+    e.preventDefault();
 
     if (!problema || !descripcion) {
-      alert("Please fill out both fields."); // Show an error message if either field is empty
+      alert("Por favor llene ambos campos."); 
     } else {
-      // Handle the form submission, e.g., send data to your server
-      alert("Form submitted successfully!");
+      
+      const reporte = {
+        laboratorio: selectedLaboratorio,
+        problema: problema,
+        descripcion: descripcion,
+      };
+
+      try {
+        const response = enviarReporte(reporte);
+        console.log("Reporte enviado: ", response);
+        alert("Reporte enviado exitosamente!");
+        navigate("/Laboratorios");
+      } catch (error) {
+        console.log("Error al enviar reporte: ", error);
+        alert("Error al enviar reporte.")
+      }
+
     }
   };
 
@@ -23,8 +63,24 @@ const Reportes = () => {
         <Row>
           <Col>
             <Form onSubmit={handleSubmit}>
+
+            <Form.Group className="mb-3" controlId="laboratorio">
+                <Form.Label>Laboratorio</Form.Label>
+                <Form.Control
+                  as="select"
+                  value={selectedLaboratorio}
+                  onChange={(e) => setSelectedLaboratorio(e.target.value)}
+                >
+                  {laboratorios.map((nombre, index) => (
+                    <option key={index} value={nombre}>
+                      {nombre}
+                    </option>
+                  ))}
+                </Form.Control>
+              </Form.Group>
+
               <Form.Group className="mb-3" controlId="problema">
-                <Form.Label>1 - Problema</Form.Label>
+                <Form.Label>Problema</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Describa el problema"
@@ -34,7 +90,7 @@ const Reportes = () => {
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="descripcion">
-                <Form.Label>2 - Descripción</Form.Label>
+                <Form.Label>Descripción</Form.Label>
                 <Form.Control
                   as="textarea"
                   rows={3}

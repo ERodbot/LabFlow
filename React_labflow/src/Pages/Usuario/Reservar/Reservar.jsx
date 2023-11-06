@@ -42,9 +42,8 @@ const Reservar = () => {
 
   // Placeholder para pruebas
   const labInfo = {
-    nombre: "Laboratorio 1",
-    fecha: "05-11-2023",
-
+    nombre: "Laboratorio 3",
+    fecha: '2025-08-19'
   }
 
   const createDropdown = (label, options, field) => (
