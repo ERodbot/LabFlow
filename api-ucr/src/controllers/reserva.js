@@ -1,5 +1,14 @@
 const Reserva = require('../models/reserva');
 
+const getReservas = async (req, res) => {
+    try {
+        const reservas = await Reserva.find({});
+        res.json(reservas);
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+};
+
 const getReservasEmail = async (req, res) => {
     try {
         const { email } = req.query;
@@ -50,5 +59,6 @@ const cancelReserva = async (req, res) => {
 module.exports = {
     getReservasEmail,
     getReservasInfo,
-    cancelReserva
+    cancelReserva,
+    getReservas
 }
