@@ -15,8 +15,6 @@ import ucrlogo from "../../images/logotipoucr.png";
 
 const NavbarAdmin = ({name}) => {
   const { user, logout } = useAuth();
-
-  console.log(user);
   const handleLogout = () => {
     logout();
     console.log('User logged out');

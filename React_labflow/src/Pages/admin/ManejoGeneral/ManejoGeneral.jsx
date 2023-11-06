@@ -27,7 +27,7 @@ const ManejoGeneral = () => {
       <Container>
         <div className="table-header">
           <div className="buttons-row">
-            {[1, 2, 3].map((buttonId) => (
+            {[1, 2, 3, 4].map((buttonId) => (
               <button
                 key={buttonId}
                 onClick={() => handleBotonSeleccionado(buttonId)}
@@ -35,11 +35,16 @@ const ManejoGeneral = () => {
                   botonSeleccionado === buttonId ? "selected" : "not-selected"
                 }
               >
-                {buttonId === 1
-                  ? "Usuarios"
-                  : buttonId === 2
-                  ? "Solicitudes"
-                  : "Problemas técnicos"}
+                <div className="justify-content-around width: 150px margin: 5px;  ">
+                  {buttonId === 1
+                    ? "Usuarios"
+                    : buttonId === 2
+                    ? "Solicitudes"
+                    : buttonId === 3
+                    ? "Problemas técnicos"
+                    : "Reservas"
+                    }
+                  </div>
               </button>
             ))}
           </div>
