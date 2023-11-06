@@ -52,7 +52,7 @@ const MisReservaciones = () => {
               <tr
                 key={index}
                 onClick={() => {
-                  window.location.href = "Mis_reservaciones_info";
+                  window.location.href = "/reservaciones_info";
                 }}
               >
                 {["Fecha", "Hora", "Laboratorio", "Estado"].map((key) => (

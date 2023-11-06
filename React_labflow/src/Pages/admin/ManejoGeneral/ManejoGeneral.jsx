@@ -23,7 +23,7 @@ const ManejoGeneral = () => {
   );
 
   return (
-    <PaginaBase isadmin={true}>
+     <PaginaBase>
       <Container>
         <div className="table-header">
           <div className="buttons-row">

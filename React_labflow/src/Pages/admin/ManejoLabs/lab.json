@@ -2,7 +2,5 @@
     "nombre": "Lab1",
     "ubicacion": "Lab1",
     "mantenimiento": {"cada": "mes", "veces": 1},
-    "horario": "07:30:00 a 17:00:00", 
-    "cada": ["semana", "mes", "dias"],
-    "opciones": ["07:30:00 a 17:00:00", "09:30:00 a 16:45:00"]
+    "cada": ["semana", "mes", "dias"]
 }

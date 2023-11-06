@@ -17,23 +17,30 @@ import borrar from "../../../images/delete.svg";
 import añadir from "../../../images/add.svg";
 
 const ManejoLabs = () => {
-  const [schedule, setSchedule] = useState(lab.mantenimiento.veces);
-  const [times, setTimes] = useState(lab.mantenimiento.cada);
-  const [space, setSpace] = useState(lab.horario);
+
+
+  // fetch a detalles de laboratorio especifico
+
+  const interval = ["semana", "mes", "días"];
+  const [nombre, setNombre] = useState(lab.nombre);
+  const [ubicacion, setUbicacion] = useState(lab.ubicacion);
+  const [amount, setAmount] = useState('');
+  const [selectedInterval, setSelectedInterval] = useState(interval[2]);
+ 
 
   return (
-    <PaginaBase isadmin = {true}>
+    <PaginaBase>
       <Container className="margin-custom">
         <Card className="p-5 w-50 mx-auto mt-5">
           <Form>
             <Form.Group className="mb-3">
               <Form.Label className="text-left">Nombre:</Form.Label>
-              <Form.Control type="text" value={lab.nombre} />
+              <Form.Control type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} />
             </Form.Group>
 
             <Form.Group className="mb-3">
               <Form.Label className="text-left">Ubicación:</Form.Label>
-              <Form.Control type="text" value={lab.ubicacion} />
+              <Form.Control type="text" value={ubicacion} onChange={(e) => setUbicacion(e.target.value)} />
             </Form.Group>
             <Container className="border p-5">
               <Container>
@@ -45,59 +52,32 @@ const ManejoLabs = () => {
                       </Form.Label>
                       <Form.Control
                         type="text"
-                        readOnly
-                        value={lab.mantenimiento.veces}
+                        value={amount}
+                        onChange={(e) => {
+                          const value = e.target.value;
+                          setAmount(value.replace(/[^0-9]+/g, '')); // Regex para quitar letras y caracteres especiales
+                        }}
                       />
                     </Form.Group>
                   </Col>
                   <Col>
                     <Dropdown as={ButtonGroup} className="w-25 mx-auto">
-                      <Button id="custom-button">{schedule}</Button>
+                      <Button id="custom-button">{selectedInterval}</Button>
                       <Dropdown.Toggle
                         className="custom-dropdown"
                         split
                         id="dropdown-split-lab"
                       ></Dropdown.Toggle>
                       <Dropdown.Menu>
-                        {lab.cada.map((opcion) => (
+                        {interval.map((opcion, index) => (
                           <Dropdown.Item
                             onClick={() => {
-                              setSchedule(opcion);
+                              setSelectedInterval(opcion);
                             }}
-                            key={opcion}
+                            key={index}
                             eventKey={opcion}
                           >
                             {opcion}
-                          </Dropdown.Item>
-                        ))}
-                      </Dropdown.Menu>
-                    </Dropdown>
-                  </Col>
-                </Row>
-              </Container>
-              <Container>
-                <Row className="align-items-center">
-                  <Col>
-                    <p>Horario</p>
-                  </Col>
-                  <Col>
-                    <Dropdown as={ButtonGroup} className="w-25 mx-auto">
-                      <Button id="custom-button">{space}</Button>
-                      <Dropdown.Toggle
-                        className="custom-dropdown"
-                        split
-                        id="dropdown-split-horario"
-                      ></Dropdown.Toggle>
-                      <Dropdown.Menu>
-                        {lab.opciones.map((every) => (
-                          <Dropdown.Item
-                            onClick={() => {
-                              setSpace(every);
-                            }}
-                            key={every}
-                            eventKey={every}
-                          >
-                            {every}
                           </Dropdown.Item>
                         ))}
                       </Dropdown.Menu>

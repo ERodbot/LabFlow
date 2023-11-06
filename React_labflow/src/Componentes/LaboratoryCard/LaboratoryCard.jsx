@@ -18,8 +18,16 @@ const LaboratorioCard = ({ laboratorio, showIcon }) => {
   };
 
   const redirect = () => {
-    window.location.href = "Manejo_laboratorios";
+    window.location.href = "manejo_labs";
   };
+
+
+  const formatMaintenanceMessage = (mantenimiento) => {
+    const amount = mantenimiento.amount;
+    const interval = mantenimiento.interval;
+    return `${amount} ${amount > 1 ? 'veces' : 'vez'} cada ${interval}`;
+  };
+
 
   return (
     <Card
@@ -38,11 +46,10 @@ const LaboratorioCard = ({ laboratorio, showIcon }) => {
             Ubicación: {laboratorio.ubicacion}
           </Card.Text>
           <Card.Text className="mx-5 my-auto">
-            Mantenimiento: Cada {laboratorio.mantenimiento.cada} veces{" "}
-            {laboratorio.mantenimiento.veces}
+            Mantenimiento: {formatMaintenanceMessage(laboratorio.mantenimiento)}
           </Card.Text>
-          <Card.Title className="my-auto">
-            Laboratorio: {laboratorio.nombre}
+          <Card.Title className="my-auto align-items-center">
+            {laboratorio.nombre}
           </Card.Title>
           {showIcon && (
             <img
@@ -60,8 +67,8 @@ const LaboratorioCard = ({ laboratorio, showIcon }) => {
             src={labbigicon}
             style={{ width: "100%", height: "85%" }}
           />
-          <Card.Title className="my-auto">
-            Laboratorio: {laboratorio.nombre}
+          <Card.Title className="my-auto d-flex flex-column align-items-center">
+            {laboratorio.nombre}
           </Card.Title>
         </>
       )}

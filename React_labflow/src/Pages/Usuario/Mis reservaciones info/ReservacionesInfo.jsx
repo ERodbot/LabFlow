@@ -82,7 +82,7 @@ const ReservacionesInfo = () => {
         </Row>
       </Card>
       <Container className="d-flex justify-content-center my-5">
-        <Link to="http://localhost:5173/Mis_reservaciones">
+        <Link to="/mis_reservaciones">
           <Button
             id="button-style"
             onClick={() => eliminateReservation(labinfo.id)}

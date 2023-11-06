@@ -6,7 +6,6 @@ import Reportes from "./Pages/Usuario/Reportes/Reportes.jsx";
 import ReservacionesInfo from "./Pages/Usuario/Mis reservaciones info/ReservacionesInfo.jsx";
 import MisReservaciones from "./Pages/Usuario/Mis reservaciones/MisReservaciones.jsx";
 import Reservar from "./Pages/Usuario/Reservar/Reservar.jsx";
-import Disponibilidad from "./Pages/Usuario/Disponibilidad/Disponibilidad.jsx";
 import AceptarDenegarReserva from "./Pages/admin/AceptarDenegarReserva/AceptarDenegarReserva.jsx";
 import VisualizarProblema from "./Pages/admin/VisualizarProblema/VisualizarProblema.jsx";
 import ManejoGeneral from "./Pages/admin/ManejoGeneral/ManejoGeneral.jsx";
@@ -37,7 +36,6 @@ function App() {
 							<Route path="/reservaciones_info" element={<ReservacionesInfo/>}></Route>
 							<Route path="/mis_reservaciones" element={<MisReservaciones/>}></Route>
 							<Route path="/reservar" element={<Reservar/>}></Route>
-							<Route path="/disponibilidad" element={<Disponibilidad/>}></Route>
 							<Route path="/aceptar_denegar_reserva" element={<AceptarDenegarReserva/>}></Route>
 							<Route path="/visualizar_problema" element={<VisualizarProblema/>}></Route>
 							<Route path="/manejo_general" element={<ManejoGeneral/>}></Route>

@@ -3,26 +3,30 @@
         {
             "nombre": "Lab1",
             "ubicacion": "Lab1",
-            "mantenimiento": {"cada": "mes", "veces": 1},
-            "horario": {"inicio":"07:30:00", "fin":"16:45:00"}
+            "mantenimiento": {"interval": "mes", "amount": 1},
+            "inicio": "07:00:00",
+            "fin": "19:00:00"
         },
         {
             "nombre": "Lab2",
             "ubicacion": "Lab2",
-            "mantenimiento": {"cada": "semana", "veces": 3},
-            "horario": {"inicio":"07:30:00", "fin":"16:45:00"}
+            "mantenimiento": {"interval": "semana", "amount": 3},
+            "inicio": "07:00:00",
+            "fin": "19:00:00"
         },
         {
             "nombre": "Lab3",
             "ubicacion": "Lab3",
-            "mantenimiento": {"cada": "mes", "veces": 1},
-            "horario": {"inicio":"07:30:00", "fin":"16:45:00"}
+            "mantenimiento": {"interval": "mes", "amount": 1},
+            "inicio": "07:00:00",
+            "fin": "19:00:00"
         },
         {
             "nombre": "Lab4",
             "ubicacion": "Lab4",
-            "mantenimiento": {"cada": "semana", "veces": 1},
-            "horario": {"inicio":"07:30:00", "fin":"16:45:00"}
+            "mantenimiento": {"interval": "semana", "amount": 1},
+            "inicio": "07:00:00",
+            "fin": "19:00:00"
         }
     ]
 }

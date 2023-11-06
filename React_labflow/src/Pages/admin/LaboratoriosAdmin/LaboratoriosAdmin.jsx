@@ -3,12 +3,11 @@ import LaboratorioCard from "../../../Componentes/LaboratoryCard/LaboratoryCard"
 import TwoButtons from "../../../Componentes/TwoButtons/TwoButtons";
 
 /*rect-bootstrap*/
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-/*Quitar despues, prueba para front-end*/
-import labtest from "./labtest.json";
+import {LabsDetails} from "../../../api/lab.jsx"
 
 /*Custom css*/
 import "./LaboratoriosAdmin.css";
@@ -16,13 +15,26 @@ import "./LaboratoriosAdmin.css";
 // ...
 
 const LaboratoriosAdmin = () => {
-  const [laboratorios, setLaboratorios] = React.useState(labtest.laboratorios);
+  const [laboratorios, setLaboratorios] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+    try {
+      const response = await LabsDetails();
+      setLaboratorios(response.data);
+    } catch (error) {
+      console.log("Error fetching lab details: ", error);
+    }
+  };
+
+    fetchData();
+  }, []);
 
   return (
-    <PaginaBase isadmin={true}>
+    <PaginaBase>
       <Container style={{ marginTop: "8rem" }}>
         <Row className="g-5">
-          {laboratorios.map((laboratorio, indice) => (
+          {laboratorios && laboratorios.map((laboratorio, indice) => (
             <Col key={indice}>
               <LaboratorioCard laboratorio={laboratorio} showIcon={true} />
             </Col>
@@ -39,7 +51,7 @@ const LaboratoriosAdmin = () => {
             </Link>
           </Col>
           <Col>
-            <Link to="http://localhost:5173/Visualizar_Problema">
+            <Link to="Visualizar_Problema">
               <Button className="mx-auto custom-button">Ver reportes</Button>
             </Link>
           </Col>

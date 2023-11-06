@@ -10,8 +10,20 @@ import "./NavbarUsuario.css";
 
 /*Imagenes*/
 import ucrlogo from "../../images/logotipoucr.png";
+import { NavDropdown } from "react-bootstrap";
+
+
+
+
 
 const NavbarUsuario = () => {
+
+  const handleLogout = () => {
+    // Handle logout logic here
+    console.log('User logged out');
+  };
+
+
   return (
     <Navbar className="navbar navbar-expand-sm custom-navbar " fixed="top">
       <Container>
@@ -37,12 +49,12 @@ const NavbarUsuario = () => {
             >
               Mis reservaciones
             </Nav.Link>
-            <Nav.Link
-              href="/Disponibilidad"
-              className="mx-4 custom-navbar-font"
-            >
-              Disponibilidad
-            </Nav.Link>
+          </Nav>
+          <Nav>
+            <NavDropdown
+            title="Daniel">
+            <NavDropdown.Item onClick={handleLogout}>Cerrar sesión</NavDropdown.Item>
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>
