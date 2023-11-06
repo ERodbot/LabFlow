@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./TwoButtons.css";
 const TwoButtons = ({ textbtn1, linkbtn1, textbtn2, linkbtn2 }) => {
   return (
-    <Container className="d-flex justify-content-center my-5">
+    <Container className="d-flex justify-content-center my-5 ">
       <Row>
         <Col>
           <Link to={linkbtn1}>

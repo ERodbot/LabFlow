@@ -82,7 +82,7 @@ const AceptarDenegarReserva = () => {
         linkbtn1={"http://localhost:5173/PrincipalUsuario"}
         linkbtn2={"http://localhost:5173/PrincipalUsuario"}
         textbtn1={"Aceptar solicitud"}
-        textbtn2={"denegar solicitud"}
+        textbtn2={"Denegar solicitud"}
       />
       <Container className="d-flex justify-content-center my-5"></Container>
     </PaginaBase>
