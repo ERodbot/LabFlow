@@ -8,6 +8,7 @@ const cookieParser = require("cookie-parser")
 const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
 const labRoutes = require("./routes/lab");
+const reservaRoutes = require("./routes/reserva");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -22,5 +23,6 @@ app.use(cors({
 app.use("/api", authRoutes);
 app.use("/api", userRoutes);
 app.use("/api", labRoutes);
+app.use("/api", reservaRoutes);
 
 module.exports = app

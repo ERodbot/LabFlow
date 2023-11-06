@@ -4,19 +4,28 @@ import PaginaBase from "../../PaginaBase";
 import { useState, useEffect } from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-/*Quitar despues, prueba para front-end*/
-import reservacioninfo from "./reservacioninfotest.json";
+
 
 /*Custom css*/
 import "./ReservacionesInfo.css";
 
 const ReservacionesInfo = () => {
-  const [labinfo, setLabfinfo] = useState(reservacioninfo);
-  console.log(labinfo);
+
+  const location = useLocation();
+  const [reservacionInfo, setReservaInfo] = useState(location.state?.reservaInfo);
+
   const eliminateReservation = (id) => {
     console.log(id);
   };
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return date.toLocaleDateString('es-ES', options);
+  };
+
   return (
     <PaginaBase>
       <Card className="p-2 w-75 mx-auto" id="card-style">
@@ -44,37 +53,37 @@ const ReservacionesInfo = () => {
               <div>
                 <h3 className="infoTitle">Selección</h3>
                 <div className="textSpace">
-                  <p className="reservationProperty">{labinfo.nombre}</p>
+                  <p className="reservationProperty">{reservacionInfo.laboratorio}</p>
                 </div>
                 <div className="textSpace">
-                  <p className="reservationProperty">{labinfo.fecha}</p>
-                </div>
-                <div className="textSpace">
-                  <p className="reservationProperty">
-                    {labinfo.inicio}
-                  </p>
-                </div>
-                <div className="textSpace">
-                  <p className="reservationProperty">{labinfo.final}</p>
-                </div>
-                <div className="textSpace">
-                  <p className="reservationProperty">{labinfo.usuario}</p>
+                  <p className="reservationProperty">{formatDate(reservacionInfo.fecha)}</p>
                 </div>
                 <div className="textSpace">
                   <p className="reservationProperty">
-                    {labinfo["sigle-del-curso"]}
+                    {reservacionInfo.inicio}
+                  </p>
+                </div>
+                <div className="textSpace">
+                  <p className="reservationProperty">{reservacionInfo.final}</p>
+                </div>
+                <div className="textSpace">
+                  <p className="reservationProperty">{reservacionInfo.usuario}</p>
+                </div>
+                <div className="textSpace">
+                  <p className="reservationProperty">
+                    {reservacionInfo["sigla_del_curso"]}
                   </p>
                 </div>
                 <div className="textSpace">
                   <p className="reservationProperty">
-                    {labinfo["nombre-del-curso"]}
+                    {reservacionInfo["nombre_del_curso"]}
                   </p>
                 </div>
                 <div className="textSpace">
-                  <p className="reservationProperty">{labinfo.grupo}</p>
+                  <p className="reservationProperty">{reservacionInfo.grupo}</p>
                 </div>
                 <div className="textSpace">
-                  <p className="reservationProperty">{labinfo.observaciones}</p>
+                  <p className="reservationProperty">{reservacionInfo.observaciones}</p>
                 </div>
               </div>
             </Card>
@@ -85,7 +94,7 @@ const ReservacionesInfo = () => {
         <Link to="/mis_reservaciones">
           <Button
             id="button-style"
-            onClick={() => eliminateReservation(labinfo.id)}
+            onClick={() => eliminateReservation(reservacionInfo._id)}
           >
             Cancelar reservación.
           </Button>

@@ -2,28 +2,56 @@ import React, { useState, useEffect } from "react";
 import PaginaBase from "../../PaginaBase";
 import { Container, Table, InputGroup, FormControl } from "react-bootstrap";
 import "./MisReservaciones.css";
-import reservacionesData from "./misreservaciones.json";
+import { useAuth} from "../../../contexts/auth";
+import { reservaEmail } from "../../../api/reserva";
+import { useNavigate } from "react-router-dom";
+
 
 const MisReservaciones = () => {
-  const [reservaciones, setReservaciones] = useState(
-    reservacionesData.reservas
-  );
+
+  const [reservaciones, setReservaciones] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredReservaciones, setFilteredReservaciones] =
-    useState(reservaciones);
+  const [filteredReservaciones, setFilteredReservaciones] = useState([]);
+
+  const navigate = useNavigate();
+  const {user} = useAuth();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await reservaEmail(user.email);
+        console.log(response.data);
+        const sortedReservaciones = response.data.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+        setReservaciones(sortedReservaciones);
+      } catch (error) {
+        console.log("Error fetching lab details: ", error);
+      }
+    };
+    fetchData();
+  }, []);
+
+
+
+  useEffect(() => {
+    const filtered = reservaciones.filter((reservacion) =>
+      ["fecha", "inicio", "laboratorio", "estado"].some((key) =>
+        reservacion[key].toString().toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    )
+    .sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+    setFilteredReservaciones(filtered);
+  }, [searchTerm, reservaciones]);
+
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
 
-  useEffect(() => {
-    const filtered = reservaciones.filter((reservacion) =>
-      ["Fecha", "Hora", "Laboratorio", "Estado"].some((key) =>
-        reservacion[key].toLowerCase().includes(searchTerm.toLowerCase())
-      )
-    );
-    setFilteredReservaciones(filtered);
-  }, [searchTerm, reservaciones]);
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return date.toLocaleDateString('es-ES', options);
+  };
 
   return (
     <PaginaBase>
@@ -48,16 +76,17 @@ const MisReservaciones = () => {
             </tr>
           </thead>
           <tbody>
-            {filteredReservaciones.map((reservacion, index) => (
+            {filteredReservaciones.map((reservacion) => (
               <tr
-                key={index}
+                key={reservacion._id}
                 onClick={() => {
-                  window.location.href = "/reservaciones_info";
+                  navigate("/reservaciones_info", {state: {reservaInfo: reservacion}});
                 }}
               >
-                {["Fecha", "Hora", "Laboratorio", "Estado"].map((key) => (
-                  <td id="td">{reservacion[key]}</td>
-                ))}
+              <td id="td">{formatDate(reservacion.fecha)}</td>
+              <td id="td">{reservacion.inicio}</td>
+              <td id="td">{reservacion.laboratorio}</td>
+              <td id="td">{reservacion.estado}</td>
               </tr>
             ))}
           </tbody>
