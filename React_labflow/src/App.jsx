@@ -23,7 +23,6 @@ function App() {
 	return (
 		<AuthProvider>
 			<BrowserRouter>
-				<main className="container content-container mx-auto px-10 md:px-0">
 					<Routes>
 						<Route path="/iniciar_sesion" element={<Init/>}></Route>
 						<Route path="/recuperar1" element={<Recuperar1/>}></Route>
@@ -45,7 +44,6 @@ function App() {
 							<Route path="/administrar_reservaciones" element={<AdministrarReservaciones/>}></Route>
 						</Route>
 					</Routes>
-				</main>
 			</BrowserRouter>
 		</AuthProvider>
 		

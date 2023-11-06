@@ -176,7 +176,7 @@ const ManejoGeneral = () => {
   <tbody>
     {filteredDatos().map((dato, index) => (
       <tr
-        key={dato.id}
+        key={index}
         onClick={() => {
           window.location.href = "/principal";
           id="custom-td"
