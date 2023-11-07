@@ -28,7 +28,7 @@ const Principal = () => {
         </Carousel>
       </Container>
       <hr className="line" />
-      <Container>
+      <Container className="d-flex justify-content-center">
         <img
           src={image1}
           alt="First slide"

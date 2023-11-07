@@ -7,6 +7,7 @@ const reservaController = require("../controllers/reserva.js");
 router.get("/reservaEmail", reservaController.getReservasEmail);
 router.get("/reservaInfo", reservaController.getReservasInfo);
 router.put("/cancelarReserva", reservaController.cancelReserva);
+router.get("/reservas", reservaController.getReservas);
 router.post("/crearReserva", reservaController.crearReserva);
 
 module.exports = router;

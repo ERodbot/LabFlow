@@ -61,6 +61,7 @@ const verifyToken = async (req, res) => {
         email: userFound.email,
         admin: userFound.admin,
         nombre: userFound.nombre,
+        apellidos: userFound.apellidos,
     });
     });
 };
@@ -98,6 +99,7 @@ const login = async (req,res)=>{
             email: userFound.email,
             admin: userFound.admin,
             nombre: userFound.nombre,
+            apellidos: userFound.apellidos,
         });
         } catch (error) {
         return res.status(500).json({ message: error.message });
