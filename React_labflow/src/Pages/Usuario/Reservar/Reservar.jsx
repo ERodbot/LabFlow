@@ -47,9 +47,17 @@ const Reservar = () => {
     endOfYear.setHours(23, 59, 59, 999);
     const allDates = [];
 
+      // Function to format a date to 'YYYY-MM-DD' in local time
+    const formatDateToLocalISO = (date) => {
+      const tzOffset = date.getTimezoneOffset() * 60000; // offset in milliseconds
+      const localISOTime = (new Date(date - tzOffset)).toISOString().slice(0, -1);
+      return localISOTime.split('T')[0];
+    };
+
+
     for (let date = new Date(today); date <= endOfYear; date.setDate(date.getDate() + 1)) {
       // Format the date in 'YYYY-MM-DD' format
-      const formattedDate = date.toISOString().split('T')[0];
+      const formattedDate = formatDateToLocalISO(date);
       allDates.push(formattedDate);
     }
 
