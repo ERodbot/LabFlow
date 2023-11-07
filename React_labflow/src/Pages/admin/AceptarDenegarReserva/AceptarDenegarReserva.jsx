@@ -3,19 +3,58 @@ import PaginaBase from "../../PaginaBase";
 /*rect-bootstrap*/
 import { useState, useEffect } from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import TwoButtons from "../../../Componentes/TwoButtons/TwoButtons";
+import { useLocation } from "react-router-dom";
+import { aceptarReserva, rechazarReserva } from "../../../api/reserva";
+import { useNavigate } from "react-router-dom";
 
-/*Quitar despues, prueba para front-end*/
-import reservacioninfo from "./reservacioninfotest.json";
+
 /*Custom css*/
 import "./AceptarDenegarReserva.css";
 
 const AceptarDenegarReserva = () => {
-  const [labinfo, setLabfinfo] = useState(reservacioninfo);
-  console.log(labinfo);
+
+  const navigate = useNavigate();
+
+  const location = useLocation();
+  const [reservacionInfo, setReservaInfo] = useState(location.state?.reservaInfo);
+
+  console.log(reservacionInfo);
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return date.toLocaleDateString('es-ES', options);
+  };
+
+
+  const handleAccept = async () => {
+    try {
+      const response = await aceptarReserva(reservacionInfo._id);
+      console.log(response);
+      alert("Reserva aceptada");
+      navigate("/manejo_general");
+      console.log("Accept");
+    } catch (error) {
+      console.log("Error al cancelar reservacion: ", error);
+    }
+    
+  };
+
+  const handleDeny = async () => {
+    try {
+      const response = await rechazarReserva(reservacionInfo._id);
+      console.log(response);
+      alert("Reserva rechazada");
+      navigate("/manejo_general");
+      console.log("Deny");
+    } catch (error) {
+      console.log("Error al cancelar reservacion: ", error);
+    }
+  };
+
+
   return (
-    <PaginaBase isadmin={true}>
+    <PaginaBase>
       <Card className="p-2 w-75 mx-auto" style={{ marginTop: "8rem" }}>
         <Row>
           {/* Column 1 with static titles */}
@@ -41,49 +80,59 @@ const AceptarDenegarReserva = () => {
               <div>
                 <h3 className="infoTitle">Selección</h3>
                 <div className="textSpace">
-                  <p className="reservationProperty">{labinfo.nombre}</p>
+                  <p className="reservationProperty">{reservacionInfo.laboratorio}</p>
                 </div>
                 <div className="textSpace">
-                  <p className="reservationProperty">{labinfo.fecha}</p>
-                </div>
-                <div className="textSpace">
-                  <p className="reservationProperty">
-                    {labinfo.espacio.inicio}
-                  </p>
-                </div>
-                <div className="textSpace">
-                  <p className="reservationProperty">{labinfo.espacio.final}</p>
-                </div>
-                <div className="textSpace">
-                  <p className="reservationProperty">{labinfo.usuario}</p>
+                  <p className="reservationProperty">{formatDate(reservacionInfo.fecha)}</p>
                 </div>
                 <div className="textSpace">
                   <p className="reservationProperty">
-                    {labinfo["sigle-del-curso"]}
+                    {reservacionInfo.inicio}
+                  </p>
+                </div>
+                <div className="textSpace">
+                  <p className="reservationProperty">{reservacionInfo.final}</p>
+                </div>
+                <div className="textSpace">
+                  <p className="reservationProperty">{reservacionInfo.usuario}</p>
+                </div>
+                <div className="textSpace">
+                  <p className="reservationProperty">
+                    {reservacionInfo.sigla_del_curso}
                   </p>
                 </div>
                 <div className="textSpace">
                   <p className="reservationProperty">
-                    {labinfo["nombre-del-curso"]}
+                    {reservacionInfo.nombre_del_curso}
                   </p>
                 </div>
                 <div className="textSpace">
-                  <p className="reservationProperty">{labinfo.grupo}</p>
+                  <p className="reservationProperty">{reservacionInfo.grupo}</p>
                 </div>
                 <div className="textSpace">
-                  <p className="reservationProperty">{labinfo.observaciones}</p>
+                  <p className="reservationProperty">{reservacionInfo.observaciones}</p>
                 </div>
               </div>
             </Card>
           </Col>
         </Row>
       </Card>
-      <TwoButtons
-        linkbtn1={"http://localhost:5173/PrincipalUsuario"}
-        linkbtn2={"http://localhost:5173/PrincipalUsuario"}
-        textbtn1={"Aceptar solicitud"}
-        textbtn2={"Denegar solicitud"}
-      />
+      <Container className="d-flex justify-content-center my-5">
+        <Button
+          id="custom-button"
+          onClick={handleAccept}
+          className="mx-2"
+        >
+          Aceptar solicitud
+        </Button>
+        <Button
+          id="custom-button"
+          onClick={handleDeny}
+          className="mx-2"
+        >
+          Denegar solicitud
+        </Button>
+      </Container>
       <Container className="d-flex justify-content-center my-5"></Container>
     </PaginaBase>
   );

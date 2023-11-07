@@ -6,10 +6,14 @@ import { useAuth } from "../../../contexts/auth";
 import { getReservas } from "../../../api/reserva";
 import { getUsers } from "../../../api/user";
 import { getReportes } from "../../../api/reporte";
+import { getRegistros } from "../../../api/registro";
+import { useNavigate } from "react-router-dom";
 
 const ManejoGeneral = () => {
 
   const { user } = useAuth();
+
+  const navigate = useNavigate();
   
   const [usuarios, setUsuarios] = useState([]);
   const [solicitudes, setSolicitudes] = useState([]);
@@ -24,20 +28,6 @@ const ManejoGeneral = () => {
     setBotonSeleccionado(id);
   };
 
-  const obtenerDatos = (id) => {
-    switch (id) {
-      case 1:
-        return usuarios;
-      case 2:
-        return solicitudes;
-      case 3:
-        return problemas;
-      case 4:
-        return reservas;
-      default:
-        return [];
-    }
-  };
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -87,6 +77,10 @@ const ManejoGeneral = () => {
         console.log(problemas.data)
         setProblemas(problemas.data);
 
+        const solicitudes = await getRegistros();
+        console.log(solicitudes.data)
+        setSolicitudes(solicitudes.data);
+
         //aqui se hace la obtencion de las solicitudes, problemas y usuarios
       } catch (error) {
         console.log(error);
@@ -94,6 +88,8 @@ const ManejoGeneral = () => {
     }
     fetchDatos();
   }, []);
+
+
   return (
       <PaginaBase>
       <Container>
@@ -160,15 +156,18 @@ const ManejoGeneral = () => {
           <th>Laboratorio</th>
           <th>Fecha</th>
         </>
-      ) : botonSeleccionado === 1 ? ( // Usuarios
+      ) : botonSeleccionado === 1 || botonSeleccionado === 2 ? ( // Usuarios
         <>
           <th>Correo</th>
           <th>Nombre</th>
         </>
       ) : ( // Reservas u otros
         <>
+          <th>Laboratorio</th>
+          <th>Fecha</th>
           <th>Hora</th>
           <th>Correo</th>
+          
         </>
       )}
     </tr>
@@ -176,26 +175,37 @@ const ManejoGeneral = () => {
   <tbody>
     {filteredDatos().map((dato, index) => (
       <tr
-        key={index}
+        key={dato._id}
         onClick={() => {
-          window.location.href = "/principal";
+
+          if (botonSeleccionado === 1) {
+            navigate("/administrar_usuario", {state: {usuarioInfo: dato}});
+          } else if (botonSeleccionado === 2) {
+            navigate("/administrar_usuario", {state: {usuarioInfo: dato}});
+          } else if (botonSeleccionado === 3) {
+            navigate("/visualizar_problema", {state: {problemaInfo: dato}});
+          } else {
+            navigate("/aceptar_denegar_reserva", {state: {reservaInfo: dato}});
           id="custom-td"
         }}
+      }
       >
         {botonSeleccionado === 3 ? ( // Problemas técnicos
           <>
-            <td>{dato.laboratorio}</td>
-            <td>{formatDate(dato.createdAt)}</td>
+            <td id="custom-td">{dato.laboratorio}</td>
+            <td id="custom-td">{formatDate(dato.createdAt)}</td>
           </>
-        ) : botonSeleccionado === 1 ? ( // Usuarios
+        ) : botonSeleccionado === 1 || botonSeleccionado === 2 ? ( // Usuarios
           <>
-            <td>{dato.email}</td>
-            <td>{dato.nombre}</td>
+            <td id="custom-td">{dato.email}</td>
+            <td id="custom-td">{dato.nombre}</td>
           </>
         ) : ( // Reservas u otros
           <>
-            <td>{dato.inicio}</td>
-            <td>{dato.usuario}</td>
+            <td id="custom-td">{dato.laboratorio}</td>
+            <td id="custom-td">{formatDate(dato.fecha)}</td>
+            <td id="custom-td">{dato.inicio}</td>
+            <td id="custom-td">{dato.usuario}</td>
           </>
         )}
       </tr>

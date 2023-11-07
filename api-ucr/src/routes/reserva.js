@@ -9,5 +9,7 @@ router.get("/reservaInfo", reservaController.getReservasInfo);
 router.put("/cancelarReserva", reservaController.cancelReserva);
 router.get("/reservas", reservaController.getReservas);
 router.post("/crearReserva", reservaController.crearReserva);
+router.put("/aceptarReserva", reservaController.aceptarReserva);
+router.put("/rechazarReserva", reservaController.rechazarReserva);
 
 module.exports = router;

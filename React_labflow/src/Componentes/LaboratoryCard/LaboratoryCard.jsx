@@ -5,7 +5,6 @@ import { Link, useNavigate } from "react-router-dom";
 import "./LaboratoryCard.css";
 import labbigicon from "../../images/labbigicon.jpg";
 import editicon from "../../images/edit.svg";
-import { Navigate } from "react-router-dom";
 
 
 const LaboratorioCard = ({ laboratorio, showIcon }) => {

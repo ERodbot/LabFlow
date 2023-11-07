@@ -10,11 +10,8 @@ import {
   ButtonGroup,
   Button,
 } from "react-bootstrap";
-import lab from "./lab.json";
 import "./ManejoLabs.css";
 import guardar from "../../../images/save.svg";
-import borrar from "../../../images/delete.svg";
-import añadir from "../../../images/add.svg";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import {updateLab} from "../../../api/lab.jsx"

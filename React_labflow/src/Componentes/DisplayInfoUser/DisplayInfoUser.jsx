@@ -1,13 +1,6 @@
 import React, { useState } from "react";
 import { Table, Container, Button, Dropdown } from "react-bootstrap";
 
-const data = {
-  correoElectronico: "correo@example.com",
-  nombre: "John",
-  primerApellido: "Doe",
-  segundoApellido: "Smith",
-};
-
 const DropdownComponent = ({ active, privilege, setPrivilege }) => {
   if (active) {
     return (
@@ -34,7 +27,7 @@ const DropdownComponent = ({ active, privilege, setPrivilege }) => {
   }
 };
 
-const DisplayInfoUser = () => {
+const DisplayInfoUser = ({ data }) => {
   const [privilege, setPrivilege] = useState("admin");
   const active = true; // Cambia esto según tu lógica para mostrar el Dropdown
 
@@ -46,7 +39,7 @@ const DisplayInfoUser = () => {
             <td style={{ background: "#ADC05C", color: "white" }}>
               Correo Electrónico
             </td>
-            <td>{data.correoElectronico}</td>
+            <td>{data.email}</td>
           </tr>
           <tr>
             <td style={{ background: "#ADC05C", color: "white" }}>Nombre</td>
@@ -56,13 +49,13 @@ const DisplayInfoUser = () => {
             <td style={{ background: "#ADC05C", color: "white" }}>
               Primer Apellido
             </td>
-            <td>{data.primerApellido}</td>
+            <td>{data.primer_apellido}</td>
           </tr>
           <tr>
             <td style={{ background: "#ADC05C", color: "white" }}>
               Segundo Apellido
             </td>
-            <td>{data.segundoApellido}</td>
+            <td>{data.segundo_apellido}</td>
           </tr>
           <tr>
             <td style={{ background: "#ADC05C", color: "white" }}>

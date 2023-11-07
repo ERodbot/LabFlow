@@ -1,6 +1,5 @@
 import PaginaBase from "../../PaginaBase";
 import LaboratorioCard from "../../../Componentes/LaboratoryCard/LaboratoryCard";
-import TwoButtons from "../../../Componentes/TwoButtons/TwoButtons";
 
 /*rect-bootstrap*/
 import React, {useState, useEffect} from "react";
@@ -41,15 +40,6 @@ const LaboratoriosAdmin = () => {
               <LaboratorioCard laboratorio={laboratorio} showIcon={true} />
             </Col>
           ))}
-        </Row>
-      </Container>
-      <Container className="d-flex justify-content-center my-5">
-        <Row>
-          <Col>
-            <Link to="Visualizar_Problema">
-              <Button className="mx-auto custom-button">Ver reportes</Button>
-            </Link>
-          </Col>
         </Row>
       </Container>
     </PaginaBase>

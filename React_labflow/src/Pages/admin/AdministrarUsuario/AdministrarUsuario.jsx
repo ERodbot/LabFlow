@@ -1,6 +1,6 @@
 import DisplayInfoUser from "../../../Componentes/DisplayInfoUser/DisplayInfoUser";
 import PaginaBase from "../../PaginaBase";
-import React from "react";
+import { useState } from "react";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import {
   Button,
@@ -12,13 +12,22 @@ import {
   ButtonGroup,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import "./AdministrarUsuario.css";
 
 const AdministrarUsuario = () => {
+
+
+  const location = useLocation();
+  const [usuarioInfo, setUsuarioInfo] = useState(location.state?.usuarioInfo);
+
+  console.log(usuarioInfo);
+
+
   return (
-    <PaginaBase isadmin={true}>
+    <PaginaBase>
       <Container>
-        <DisplayInfoUser />
+        <DisplayInfoUser data={usuarioInfo}/>
         <Container>
           <Container className="d-flex justify-content-center my-5">
             <Row>

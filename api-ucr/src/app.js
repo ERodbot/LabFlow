@@ -10,6 +10,7 @@ const userRoutes = require("./routes/user");
 const labRoutes = require("./routes/lab");
 const reservaRoutes = require("./routes/reserva");
 const reporteRoutes = require("./routes/reporte");
+const registroRoutes = require("./routes/registro");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -26,5 +27,6 @@ app.use("/api", userRoutes);
 app.use("/api", labRoutes);
 app.use("/api", reservaRoutes);
 app.use("/api", reporteRoutes);
+app.use("/api", registroRoutes);
 
 module.exports = app
