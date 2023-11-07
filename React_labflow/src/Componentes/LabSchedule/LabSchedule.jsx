@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Card, Table } from 'react-bootstrap';
 import { reservaLab } from '../../api/lab';
 
-const LabSchedule = ({ laboratorio, date }) => {
+const LabSchedule = ({ laboratorio, date, reservationChange }) => {
   const [reservedSlots, setReservedSlots] = useState([]);
   const timeSlots = Array.from({ length: 13 }, (_, i) => `${7 + i}:00`);
 
@@ -25,7 +25,7 @@ const LabSchedule = ({ laboratorio, date }) => {
     };
 
     fetchReservation();
-  }, [laboratorio, date]);
+  }, [laboratorio, date, reservationChange]);
 
   const checkIfReserved = (timeSlot) => {
     return reservedSlots.includes(timeSlot);

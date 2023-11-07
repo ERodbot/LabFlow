@@ -40,7 +40,7 @@ const ReservacionesInfo = () => {
                 <p className="reservationProperty">Hora inicio</p>
                 <p className="reservationProperty">Hora final</p>
                 <p className="reservationProperty">Usuario</p>
-                <p className="reservationProperty">Siglo del curso</p>
+                <p className="reservationProperty">Sigla del curso</p>
                 <p className="reservationProperty">Nombre del curso</p>
                 <p className="reservationProperty">Grupo</p>
                 <p className="reservationProperty">Observaciones</p>

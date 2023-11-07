@@ -27,12 +27,8 @@
 #custom-button {
     background-color: #7CB755;
     border: none;
+    width: auto;
 } 
-
-.custom-dropdown {
-    background-color: #7CB755;
-    border: none
-}
 
 #custom-container {
     margin-top: 10%;
