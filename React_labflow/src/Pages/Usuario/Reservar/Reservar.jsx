@@ -47,17 +47,10 @@ const Reservar = () => {
     endOfYear.setHours(23, 59, 59, 999);
     const allDates = [];
 
-      // Function to format a date to 'YYYY-MM-DD' in local time
-    const formatDateToLocalISO = (date) => {
-      const tzOffset = date.getTimezoneOffset() * 60000; // offset in milliseconds
-      const localISOTime = (new Date(date - tzOffset)).toISOString().slice(0, -1);
-      return localISOTime.split('T')[0];
-    };
-
 
     for (let date = new Date(today); date <= endOfYear; date.setDate(date.getDate() + 1)) {
       // Format the date in 'YYYY-MM-DD' format
-      const formattedDate = formatDateToLocalISO(date);
+      const formattedDate = date.toISOString().split('T')[0];
       allDates.push(formattedDate);
     }
 
@@ -121,10 +114,19 @@ const Reservar = () => {
       return;
     }
 
-    console.log(formState);
+    // Manejar UTC para la fecha y guardar correctamente en base de datos
+    const dateFixed = new Date(formState.fecha + 'T06:00:00Z');
+    const isoDate = dateFixed.toISOString();
+    
+    const reservationData = {
+      ...formState,
+      fecha: isoDate,
+    };
+
+    console.log(reservationData);
 
     try {
-      const response = await crearReserva(formState);
+      const response = await crearReserva(reservationData);
       console.log("Response: ", response.data);
       alert("Reservación creada exitosamente!");
       setReservationChange((prev) => prev + 1);
