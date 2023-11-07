@@ -1,0 +1,18 @@
+.carousel-p-style p{
+    color:black;
+}
+
+.carousel {
+    width: 70%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  color: grey; /* Change to your desired color */
+}
+
+.line {
+    height: 0.5rem;
+    background-color: #3B9DD2;
+    border: none;
+}
