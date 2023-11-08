@@ -27,7 +27,7 @@ const ManejoLabs = () => {
 
 
   // fetch a detalles de laboratorio especifico
-  const interval = ["semana", "mes", "días"];
+  const interval = ["semana", "mes", "día"];
   const [nombre, setNombre] = useState(lab.nombre);
   const [ubicacion, setUbicacion] = useState(lab.ubicacion);
   const [amount, setAmount] = useState(lab.mantenimiento.amount);
