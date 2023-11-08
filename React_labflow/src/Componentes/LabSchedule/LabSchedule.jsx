@@ -9,16 +9,18 @@ const LabSchedule = ({ laboratorio, date, reservationChange }) => {
   useEffect(() => {
     const fetchReservation = async () => {
       try {
-        const response = await reservaLab(laboratorio, date);
+        const utcDate = new Date(date + 'T06:00:00Z').toISOString();
+        const response = await reservaLab(laboratorio, utcDate);
         console.log(response.data);
 
-        const slots = response.data.map(reservation => {
+        const slots = response.data.filter(reservation => reservation.reservation).map(reservation => {
           const startTime = parseInt(reservation.inicio.split(':')[0], 10);
           const endTime = parseInt(reservation.final.split(':')[0], 10);
           return Array.from({ length: endTime - startTime }, (_, i) => `${startTime + i}:00`);
         }).flat();
 
         setReservedSlots(slots);
+        console.log("Slots reservados:", reservedSlots);
       } catch (error) {
         console.error('Error fetching reservation data:', error);
       }
