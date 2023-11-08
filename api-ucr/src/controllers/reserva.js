@@ -82,6 +82,7 @@ const crearReserva = async (req, res) => {
                 $gte: startOfDay,
                 $lte: endOfDay
             },
+            reservation: true,
             $or: [
                 // Reserva empieza durante otra reserva
                 { inicio: {$lt: final}, final: {$gt: inicio} },

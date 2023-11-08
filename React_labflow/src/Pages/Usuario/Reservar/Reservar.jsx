@@ -39,8 +39,13 @@ const Reservar = () => {
     };
     fetchData();
 
-    const timeSlots = Array.from({ length: 13 }, (_, i) => `${7 + i}:00`);
+    const timeSlots = Array.from({ length: 13 }, (_, i) => {
+    const hour = 7 + i;
+    return `${hour < 10 ? '0' : ''}${hour}:00`;
+    });
+
     setHoras(timeSlots);
+    console.log("Horas: ", horas)
 
     const today = new Date();
     const endOfYear = new Date(today.getFullYear(), 11, 31);

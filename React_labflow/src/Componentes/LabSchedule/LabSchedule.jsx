@@ -4,7 +4,10 @@ import { reservaLab } from '../../api/lab';
 
 const LabSchedule = ({ laboratorio, date, reservationChange }) => {
   const [reservedSlots, setReservedSlots] = useState([]);
-  const timeSlots = Array.from({ length: 13 }, (_, i) => `${7 + i}:00`);
+  const timeSlots = Array.from({ length: 13 }, (_, i) => {
+    const hour = 7 + i;
+    return `${hour < 10 ? '0' : ''}${hour}:00`;
+    });
 
   useEffect(() => {
     const fetchReservation = async () => {
@@ -16,7 +19,10 @@ const LabSchedule = ({ laboratorio, date, reservationChange }) => {
         const slots = response.data.filter(reservation => reservation.reservation).map(reservation => {
           const startTime = parseInt(reservation.inicio.split(':')[0], 10);
           const endTime = parseInt(reservation.final.split(':')[0], 10);
-          return Array.from({ length: endTime - startTime }, (_, i) => `${startTime + i}:00`);
+          return Array.from({ length: endTime - startTime }, (_, i) => {
+            const hour = startTime + i;
+            return `${hour < 10 ? '0' : ''}${hour}:00`;
+          });
         }).flat();
 
         setReservedSlots(slots);
