@@ -29,6 +29,16 @@ export const AuthProvider = ({ children }) => {
     
   };
 
+  const register = async ({ email, password, name, apellido1, apellido2 }) => {
+    try {
+      const apellidos = apellido1 + " " + apellido2;
+      const res = await registerRequest({ email, password, name, apellidos });
+      return res;
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const logout = () => {
     Cookies.remove("token");
     setUser(null);
@@ -69,6 +79,7 @@ export const AuthProvider = ({ children }) => {
       isAuthenticated,
       logout,
       loading,
+      register
     }}>
       {children}
     </AuthContext.Provider>

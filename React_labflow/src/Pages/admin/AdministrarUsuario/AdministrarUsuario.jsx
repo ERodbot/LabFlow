@@ -32,14 +32,14 @@ const AdministrarUsuario = () => {
           <Container className="d-flex justify-content-center my-5">
             <Row>
               <Col>
-                <Link to="http://localhost:5173/PrincipalUsuario">
+                <Link to="http://localhost:5173/Principal">
                   <Button className="mx-auto custom-button">
                     Cancelar Solicitud
                   </Button>
                 </Link>
               </Col>
               <Col>
-                <Link to="http://localhost:5173/PrincipalUsuario">
+                <Link to="http://localhost:5173/Principal">
                   <Button className="mx-auto custom-button">
                     Aceptar Solicitud
                   </Button>

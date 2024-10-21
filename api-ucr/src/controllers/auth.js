@@ -6,7 +6,8 @@ const { TOKEN_SECRET } = require("../config.js");
 
 const register = async (req, res) => {
     try {
-        const { email, password, nombre, apellidos } = req.body;
+        console.log("Datos recibidos:", req.body);
+        const { email, password, name, apellidos } = req.body;
     
         const userFound = await User.findOne({ email });
     
@@ -22,26 +23,21 @@ const register = async (req, res) => {
         const newUser = new User({
             email,
             password: passwordHash,
-            nombre,
+            nombre: name,
             apellidos
         });
     
         // saving the user in the database
         const userSaved = await newUser.save();
     
-        // create access token
-        const token = await createAccessToken({
-            id: userSaved._id,
-        });
-    
-        res.cookie("token", token);
-    
-        res.json({
+        return res.json({
             id: userSaved._id,
             email: userSaved.email,
 
         });
+
     } catch (error) {
+        console.error(error.message);
         res.status(500).json({ message: error.message });
     }
 };
@@ -70,7 +66,7 @@ const login = async (req,res)=>{
     try {
         const { email, password, admin } = req.body;
         const userFound = await User.findOne({ email });
-    
+        console.log(userFound);
         if (!userFound)
             return res.status(400).json({
             message: ["The email does not exist"],

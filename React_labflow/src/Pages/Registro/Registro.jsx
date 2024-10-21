@@ -10,6 +10,7 @@ import {
 } from "react-bootstrap";
 import "./Registro.css";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/auth";
 
 function RegistrationForm() {
   const [email, setEmail] = useState("");
@@ -18,10 +19,28 @@ function RegistrationForm() {
   const [apellido2, setApellido2] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const navigate = useNavigate();
+  const { register, user, isAuthenticated } = useAuth();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    if (password !== confirmPassword) {
+      alert("Las contraseñas no coinciden");
+      return;
+    }
+    try {
+      const res = await register({ email, password, name, apellido1, apellido2 });
+      console.log(res);
+      if (res) {
+          navigate("/iniciar_sesion");
+      }
+      else {
+        alert("Error al registrarse");
+      }
+    }
+    catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -116,7 +135,6 @@ function RegistrationForm() {
             variant="primary"
             type="submit"
             className="btn mt-3"
-            href="./iniciar_sesion"
           >
             Registrarse
           </Button>

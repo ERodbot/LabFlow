@@ -78,6 +78,7 @@ const Login = () => {
           </div>
           <div className="input-control">
             <Button
+              id="submit"
               variant="primary"
               type="submit"
               className="btn mt-3"

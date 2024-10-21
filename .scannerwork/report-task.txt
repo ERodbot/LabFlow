@@ -1,0 +1,6 @@
+projectKey=Prueba-LabFLow
+serverUrl=http://localhost:9000
+serverVersion=10.7.0.96327
+dashboardUrl=http://localhost:9000/dashboard?id=Prueba-LabFLow
+ceTaskId=e14ace9f-9692-4f3f-b5eb-3e2b7013509d
+ceTaskUrl=http://localhost:9000/api/ce/task?id=e14ace9f-9692-4f3f-b5eb-3e2b7013509d

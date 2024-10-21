@@ -47,9 +47,9 @@ const NavbarAdmin = ({name}) => {
             </Nav.Link>
           </Nav>
           <Nav>
-            <NavDropdown
+            <NavDropdown id="nav-dropdown"
             title = {name} >
-            <NavDropdown.Item onClick={handleLogout}>Cerrar sesión</NavDropdown.Item>
+            <NavDropdown.Item id="cerrar_sesion" onClick={handleLogout}>Cerrar sesión</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

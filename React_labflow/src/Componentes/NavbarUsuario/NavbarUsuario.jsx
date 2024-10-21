@@ -55,8 +55,9 @@ const NavbarUsuario = ({name}) => {
           </Nav>
           <Nav>
             <NavDropdown
+            id="nav-dropdown"
             title={name}>
-            <NavDropdown.Item onClick={handleLogout}>Cerrar sesión</NavDropdown.Item>
+            <NavDropdown.Item id="cerrar_sesion" onClick={handleLogout}>Cerrar sesión</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

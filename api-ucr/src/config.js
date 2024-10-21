@@ -1,6 +1,6 @@
 const PORT = process.env.PORT || 3000;
 const MONGODB_URI =
-    process.env.MONGODB_URI || "mongodb+srv://user:1234@cluster0.uxrqdmd.mongodb.net/apiucr";
+    process.env.MONGODB_URI || "mongodb+srv://user:1234@cluster0.xdyid.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 const TOKEN_SECRET =  "secret";
 
 //process.env.TOKEN_SECRET ||
